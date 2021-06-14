@@ -1,0 +1,36 @@
+const express = require('express');
+const app = express();
+const helmet = require('helmet');
+let PORT = 3000;
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+
+//cookie- session
+app.use(cookieSession({
+    name: 'session',
+    keys: ['lskdfjl;sj;lasjdfl;ajsld;fjasl;djflasjdflsak'], 
+    maxAge: 14 * 24  * 60 * 60 * 1000
+}))
+
+//public
+app.use(express.static('public'));
+app.use(helmet());
+
+//views
+app.set('view engine', 'ejs');
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+//routes
+
+
+
+
+
+app.listen(PORT,() => {
+    console.log(`listening on port ${PORT}`);
+})
