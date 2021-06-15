@@ -1,12 +1,9 @@
-//express
+
 const express = require('express');
 const router = express.Router();
-//passport
 const passport = require('passport');
 const localStrategy = require('passport-local').Strategy;
-//database
 const db = require("../models");
-//bcrypt.js
 const bcrypt = require('bcryptjs');
 
 

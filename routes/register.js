@@ -4,7 +4,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const db = require('../models');
 const multer = require('multer');
-const upload = multer({dest:'./uploads'})
+const upload = multer({dest:'./uploads'});
 
 router.get('/register',(req, res) => {
     res.send('registation page')
@@ -34,49 +34,3 @@ router.post('/register',async (req, res) => {
 })
 
 module.exports = router;
-    
-    
-    
-    
-    
-    
-// router.post('/joinFamily',async (req,res) => {
-
-//     let {familyName,famliyPhoto} = req.body
-// 
-//     //get user id off of cookie
-
-//     if(db.family.familyName){
-//         //add user to mapping table as belonging to group ID
-//         //find one (first) instance group.id associated with groupName
-//         let family = await db.family.findOne({where:{familyName:familyName}});
-//         let familyId = family.id;
-//         //add user to table
-//         db.membership.create({
-//             userID: user.id,
-//             familyiD: familyId,
-//             isApproved:false
-//         });
-//     } else {
-//     //message : familyName doesn't exist, do you want to create a family?
-//     res.redirect('/createFamily')
-//     }
-    
-// })
-
-
-
-
-
-// router.post('/createFamily',async(req,res) => {
-//     //create new family add user as owner
-//     let newGroup = await db.group.create({
-//         groupName:groupName,
-//     })
-//     // and user and new family to mapping table linked by the ID's
-//     db.group_user_map.create({
-//         userID:user.id,
-//         groupName:newGroup.groupName
-//     })
-    
-// })
