@@ -1,10 +1,11 @@
 {
   "development": {
-    "username": "postgres",
-    "password": null,
-    "database": "database_fullstack_proj",
-    "host": "127.0.0.1",
+
+    "username": "pfaptxzb",
+    "password": "shkZ7if1ZSDn13wjQ9ScRevZNVNoUs1x",
+    "database": "pfaptxzb",
+    "host": "batyr.db.elephantsql.com",
     "dialect": "postgres"
   }
-  
-}
+} 
+
