@@ -5,9 +5,9 @@ router.use(express.urlencoded({extended: false}));
 router.use(express.json())
 
 // renders the home front end page
-// router.get("/home", (req, res) => {
-//     res.render("home");
-//   });
+router.get("/home", (req, res) => {
+    res.send("home");
+  });
 
 
 // GET /todos
