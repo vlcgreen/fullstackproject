@@ -26,7 +26,11 @@
     "passport-local": "^1.0.0",
     "pg": "^8.6.0",
     "pg-hstore": "^2.3.4",
+<<<<<<< HEAD
     "sequelize": "^6.6.2",
     "sequelize-cli": "^6.2.0"
+=======
+    "sequelize": "^6.6.2"
+>>>>>>> main
   }
 }
