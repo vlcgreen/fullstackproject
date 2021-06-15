@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "pfaptxzb",
+    "password": "shkZ7if1ZSDn13wjQ9ScRevZNVNoUs1x",
+    "database": "pfaptxzb",
+    "host": "postgres://pfaptxzb:shkZ7if1ZSDn13wjQ9ScRevZNVNoUs1x@batyr.db.elephantsql.com/pfaptxzb",
+    "dialect": "postgres"
+  }
+} 
