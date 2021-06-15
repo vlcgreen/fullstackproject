@@ -24,6 +24,7 @@ app.use(helmet());
 //views
 app.set("view engine", "ejs");
 
+// passport 
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -34,6 +35,15 @@ app.use(require("./routes/home"));
 // app.use(require('./routes/recipes'));
 // app.use(require('./routes/registration'));
 
-app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
-});
+app.use(require('./routes/register'));
+app.use(require('./routes/login'));
+
+
+
+
+
+
+app.listen(PORT,() => {
+    console.log(`listening on port ${PORT}`);
+})
+//changes testing
