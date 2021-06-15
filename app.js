@@ -8,7 +8,7 @@ const passport = require('passport');
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
-//cookie- session
+//cookie-session
 app.use(cookieSession({
     name: 'session',
     keys: ['lskdfjl;sj;lasjdfl;ajsld;fjasl;djflasjdflsak'], 
@@ -19,13 +19,18 @@ app.use(cookieSession({
 app.use(express.static('public'));
 app.use(helmet());
 
-//views
+//views setup
 app.set('view engine', 'ejs');
 
+// passport 
 app.use(passport.initialize());
 app.use(passport.session());
 
 //routes
+
+app.use(require('./routes/register'));
+app.use(require('./routes/login'));
+
 
 
 
