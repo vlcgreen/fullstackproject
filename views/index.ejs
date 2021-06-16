@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="keywords" content="SocialChef - Social Recipe HTML Template" />
-	<meta name="description" content="SocialChef - Social Recipe HTML Template">
-	<meta name="author" content="themeenergy.com">
-	
-	<title>SocialChef</title>
-	
-	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/icons.css" />
-	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
-	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
-	<link rel="shortcut icon" href="images/favicon.ico" />
+	<%= include ('partials/structure/head.js') %> 
 	
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,7 +21,7 @@
 	<header class="head" role="banner">
 		<!--wrap-->
 		<div class="wrap clearfix">
-			<a href="index.html" title="SocialChef" class="logo"><img src="images/ico/Heart_Food_logo.png" alt="SocialChef logo" /></a>
+			<a href="index.html" title="SocialChef" class="logo"><img src="images/ico/Heart_Food_logo.png" height="60px" alt="Heart Food logo"/></a>
 			
 			<nav class="main-nav" role="navigation" id="menu">
 				<ul>
@@ -43,11 +31,11 @@
 							<li><a href="recipes2.html" title="Recipes 2">Recipes 2</a></li><li><a href="recipe.html" title="Recipe">Recipe</a></li>
 						</ul>
 					</li>
-					<li><a href="blog.html" title="Blog"><span>Blog</span></a>
+					<!-- <li><a href="blog.html" title="Blog"><span>Blog</span></a>
 						<ul>
 							<li><a href="blog_single.html" title="Blog post">Blog post</a></li>
 						</ul>
-					</li>
+					</li> -->
 					<li><a href="#" title="Pages"><span>Pages</span></a>
 						<ul>
 							<li><a href="left_sidebar.html" title="Left sidebar page">Left sidebar page</a></li>
@@ -73,7 +61,8 @@
 				<ul>
 					<li class="light"><a href="find_recipe.html" title="Search for recipes"><i class="icon icon-themeenergy_search"></i> <span>Search for recipes</span></a></li>
 					<li class="medium"><a href="my_profile.html" title="My account"><i class="icon icon-themeenergy_chef-hat"></i> <span>My account</span></a></li>
-					<li class="dark"><a href="submit_recipe.html" title="Submit a recipe"><i class="icon icon-themeenergy_fork-spoon"></i> <span>Submit a recipe</span></a></li>
+					<!-- <li class="dark"><a href="submit_recipe.html" title="Submit a recipe"><i class="icon icon-themeenergy_fork-spoon"></i> <span>Submit a recipe</span></a></li> -->
+					<li class="dark"><a href="" title="My Family"><i class="icon icon-themeenergy_love"></i> <span>My Family</span></a></li>
 				</ul>
 			</nav>
 		</div>
@@ -93,7 +82,10 @@
 				<div class="row">
 					<article class="three-fourth text">
 						<h1>Welcome to Heart Food!</h1>
-						<p>“If you really want to make a friend, go to someone’s house and eat with him… The people who give you their food give you their heart.” Cesar Chavez</p>
+						<p>
+						“If you really want to make a friend, go to someone’s house and eat with him… <br>
+						The people who give you their food give you their heart.” <br>
+						- Cesar Chavez</p>
 						<a href="register.html" class="button white more medium">Join our community <i class="fa fa-chevron-right"></i></a>
 						<p>Already a member? Click <a href="login.html">here</a> to login.</p>
 					</article>
@@ -103,7 +95,7 @@
 						<div class="widget container">
 							<div class="textwrap">
 								<h3>Search for recipes</h3>
-								<p>All you need to do is enter an igredient, a dish or a keyword. </p>
+								<p>All you need to do is enter an ingredient, a dish or a keyword. </p>
 								<p>You can also select a specific category from the dropdown.</p>
 								<p>There’s sure to be something tempting for you to try.</p> 
 								<p>Enjoy!</p>
@@ -137,96 +129,96 @@
 		</div>
 		<!--//intro-->
 		
-		<!--wrap-->
-		<div class="wrap clearfix">
+		<!-- wrap -->
+		<!-- <div class="wrap clearfix"> -->
 			<!--row-->
-			<div class="row">
+			<!-- <div class="row"> -->
 				<!--content-->
-				<section class="content full-width">
+				<!-- <section class="content full-width">
 					<div class="icons dynamic-numbers">
 						<header class="s-title">
 							<h2 class="ribbon large">SocialChef in numbers</h2>
 						</header>
-						
+						 -->
 						<!--row-->
-						<div class="row">
+						<!-- <div class="row"> -->
 							<!--item-->
-							<div class="one-sixth">
+							<!-- <div class="one-sixth">
 								<div class="container">
 									<i class="icon icon-themeenergy_chef-hat"></i>
 									<span class="title dynamic-number" data-dnumber="1730">0</span>
 									<span class="subtitle">members</span>
 								</div>
-							</div>
+							</div> -->
 							<!--//item-->
 							
 							<!--item-->
-							<div class="one-sixth">
+							<!-- <div class="one-sixth">
 								<div class="container">
 									<i class="icon icon-themeenergy_pan"></i>
 									<span class="title dynamic-number" data-dnumber="1250">0</span>
 									<span class="subtitle">recipes</span>
 								</div>
-							</div>
+							</div> -->
 							<!--//item-->
 							
 							<!--item-->
-							<div class="one-sixth">
+							<!-- <div class="one-sixth">
 								<div class="container">
 									<i class="icon icon-themeenergy_image"></i>
 									<span class="title dynamic-number" data-dnumber="5300">0</span>
 									<span class="subtitle">photos</span>
 								</div>
-							</div>
+							</div> -->
 							<!--//item-->
 							
 							<!--item-->
-							<div class="one-sixth">
+							<!-- <div class="one-sixth">
 								<div class="container">
 									<i class="icon icon-themeenergy_pencil"></i>
 									<span class="title dynamic-number" data-dnumber="2300">0</span>
 									<span class="subtitle">forum posts</span>
 								</div>
-							</div>
+							</div> -->
 							<!--//item-->
 							
 							<!--item-->
-							<div class="one-sixth">
+							<!-- <div class="one-sixth">
 								<div class="container">
 									<i class="icon icon-themeenergy_chat-bubbles"></i>
 									<span class="title dynamic-number" data-dnumber="7400">0</span>
 									<span class="subtitle">comments</span>
 								</div>
-							</div>
+							</div> -->
 							<!--//item-->
 							
 							<!--item-->
-							<div class="one-sixth">
+							<!-- <div class="one-sixth">
 								<div class="container">
 									<i class="icon icon-themeenergy_stars"></i>
 									<span class="title dynamic-number" data-dnumber="1700">0</span>
 									<span class="subtitle">articles</span>
 								</div>
-							</div>
+							</div> -->
 							<!--//item-->
 						
-							<div class="cta">
+							<!-- <div class="cta">
 								<a href="login.html" class="button big">Join us!</a>
 							</div>
-						</div>
+						</div> -->
 						<!--//row-->
-					</div>
-				</section>
+					<!-- </div>
+				</section> -->
 				<!--//content-->
 			
 				<!--content-->
-				<section class="content three-fourth">
+				<!-- <section class="content-md-3 content three-fourth" style="align-items: center;"> -->
 					<!--cwrap-->
-					<div class="cwrap">
+					<!-- <div class="cwrap"> -->
 						<!--entries-->
-						<div class="entries row">
+						<!-- <div class="entries row"> -->
 							<!--featured recipe-->
-							<div class="featured two-third">
+							<!-- <div class="featured two-third">
 								<header class="s-title">
 									<h2 class="ribbon">Recipe of the Day</h2>
 								</header>
@@ -246,11 +238,11 @@
 										</div>
 									</div>
 								</article>
-							</div>
+							</div> -->
 							<!--//featured recipe-->
 							
 							<!--featured member-->
-							<div class="featured one-third">
+							<!-- <div class="featured one-fourth">
 								<header class="s-title">
 									<h2 class="ribbon star">Featured member</h2>
 								</header>
@@ -270,23 +262,23 @@
 										</div>
 									</div>
 								</article>
-							</div>
+							</div> -->
 							<!--//featured member-->
-						</div>
+						<!-- </div> -->
 						<!--//entries-->
-					</div>
+					<!-- </div> -->
 					<!--//cwrap-->
 				
 					<!--cwrap-->
-					<div class="cwrap">
+					<!-- <div class="cwrap">
 						<header class="s-title">
 							<h2 class="ribbon bright">Latest recipes</h2>
 						</header>
-						
+						 -->
 						<!--entries-->
-						<div class="entries row">
+						<!-- <div class="entries row"> -->
 							<!--item-->
-							<div class="entry one-third">
+							<!-- <div class="entry one-third">
 								<figure>
 									<img src="images/img.jpg" alt="" />
 									<figcaption><a href="recipe.html"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
@@ -301,11 +293,11 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!--item-->
 							
 							<!--item-->
-							<div class="entry one-third">
+							<!-- <div class="entry one-third">
 								<figure>
 									<img src="images/img.jpg" alt="" />
 									<figcaption><a href="recipe.html"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
@@ -320,11 +312,11 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!--item-->
 							
 							<!--item-->
-							<div class="entry one-third">
+							<!-- <div class="entry one-third">
 								<figure>
 									<img src="images/img.jpg" alt="" />
 									<figcaption><a href="recipe.html"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
@@ -339,11 +331,11 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!--item-->
 							
 							<!--item-->
-							<div class="entry one-third">
+							<!-- <div class="entry one-third">
 								<figure>
 									<img src="images/img.jpg" alt="" />
 									<figcaption><a href="recipe.html"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
@@ -358,11 +350,11 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!--item-->
 							
 							<!--item-->
-							<div class="entry one-third">
+							<!-- <div class="entry one-third">
 								<figure>
 									<img src="images/img.jpg" alt="" />
 									<figcaption><a href="recipe.html"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
@@ -377,11 +369,11 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!--item-->
 							
 							<!--item-->
-							<div class="entry one-third">
+							<!-- <div class="entry one-third">
 								<figure>
 									<img src="images/img.jpg" alt="" />
 									<figcaption><a href="recipe.html"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
@@ -396,27 +388,27 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!--item-->
 							
-							<div class="quicklinks">
+							<!-- <div class="quicklinks">
 								<a href="#" class="button">More recipes</a>
 								<a href="javascript:void(0)" class="button scroll-to-top">Back to top</a>
 							</div>
-						</div>
+						</div> -->
 						<!--//entries-->
-					</div>
+					<!-- </div> -->
 					<!--//cwrap-->
 				
 					<!--cwrap-->
-					<div class="cwrap">
+					<!-- <div class="cwrap">
 						<header class="s-title">
 							<h2 class="ribbon bright">Latest articles</h2>
-						</header>
+						</header> -->
 						<!--entries-->
-						<div class="entries row">
+						<!-- <div class="entries row"> -->
 							<!--item-->
-							<div class="entry one-third">
+							<!-- <div class="entry one-third">
 								<figure>
 									<img src="images/img.jpg" alt="" />
 									<figcaption><a href="blog_single.html"><i class="icon icon-themeenergy_eye2"></i> <span>View post</span></a></figcaption>
@@ -433,11 +425,11 @@
 										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit amet . . . </p>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!--item-->
 							
 							<!--item-->
-							<div class="entry one-third">
+							<!-- <div class="entry one-third">
 								<figure>
 									<img src="images/img.jpg" alt="" />
 									<figcaption><a href="blog_single.html"><i class="icon icon-themeenergy_eye2"></i> <span>View post</span></a></figcaption>
@@ -454,11 +446,11 @@
 										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit amet . . . </p>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!--item-->
 							
 							<!--item-->
-							<div class="entry one-third">
+							<!-- <div class="entry one-third">
 								<figure>
 									<img src="images/img.jpg" alt="" />
 									<figcaption><a href="blog_single.html"><i class="icon icon-themeenergy_eye2"></i> <span>View post</span></a></figcaption>
@@ -475,23 +467,23 @@
 										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit amet . . . </p>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<!--item-->
 							
-							<div class="quicklinks">
+							<!-- <div class="quicklinks">
 								<a href="#" class="button">More posts</a>
 								<a href="javascript:void(0)" class="button scroll-to-top">Back to top</a>
 							</div>
-						</div>
+						</div> -->
 						<!--//entries-->
-					</div>
+					<!-- </div> -->
 					<!--//cwrap-->
-				</section>
+				<!-- </section> -->
 				<!--//content-->
 		
 			
 				<!--right sidebar-->
-				<aside class="sidebar one-fourth">
+				<!-- <aside class="sidebar one-fourth">
 					<div class="widget">
 						<h3>Recipe Categories</h3>
 						<ul class="boxed">
@@ -582,7 +574,7 @@
 						<a href="#"><img src="images/advertisment.jpg" alt="" /></a>
 					</div>
 				</aside>
-			</div>
+			</div> -->
 			<!--//right sidebar-->
 		</div>
 		<!--//wrap-->
@@ -592,14 +584,14 @@
 	<!--call to action-->
 	<section class="cta">
 		<div class="wrap clearfix">
-			<a href="http://themeforest.net/item/socialchef-social-recipe-html-template/8568727?ref=themeenergy" class="button big white right">Purchase theme</a>
-			<h2>Already convinced? This is a call to action section lorem ipsum dolor sit amet.</h2>
+			<a href="http://themeforest.net/item/socialchef-social-recipe-html-template/8568727?ref=themeenergy" class="button big white right">Sign up now</a>
+			<h2>Love sharing food and family? This is the community site for you!</h2>
 		</div>
 	</section>
 	<!--//call to action-->
 	
 	<!--footer-->
-	<footer class="foot" role="contentinfo">
+	<!-- <footer class="foot" role="contentinfo">
 		<div class="wrap clearfix">
 			<div class="row">
 				<article class="one-half">
@@ -641,8 +633,8 @@
 				</div>
 			</div>
 		</div>
-	</footer>
-	<!--//footer-->
+	</footer> -->
+	<!--//footer -->
 
 	<script src="js/jquery-3.1.0.min.js"></script>
 	<script src="js/jquery.uniform.min.js"></script>
