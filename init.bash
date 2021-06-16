@@ -5,3 +5,5 @@ sequelize model:generate --name roles --attributes title:integer,level:string
 sequelize model:generate --name user_recipes --attributes title:string,ingredients:string,directions:string,image:string,userID:integer,tagID:integer
 sequelize model:generate --name rating --attributes userID:integer,recipeID:integer,rating:integer
 sequelize model:generate --name tag --attributes name:string,description:string
+
+

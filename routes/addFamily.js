@@ -41,25 +41,31 @@ router.get('/addFamily',(req,res) => {
 
 router.post('/addFamily',upload.single('image'),async(req,res) => {
 try{
+    let currentUserId = req.user.id;
 
-    let cookies = req.user;
-        console.log(cookies);
-    // if(req.file){
-    //     //res.json(req.file);
-    //     //var imagePath = req.file.path;
-        
-    //     
-    //     //console.log(imagePath);
-    //} 
-    // //create new family add user as owner
-    // let newGroup = await db.group.create({
-    //     groupName:groupName,
-    // })
-    // // and user and new family to mapping table linked by the ID's
-    // db.group_user_map.create({
-    //     userID:user.id,
-    //     groupName:newGroup.groupName
-    // })
+    if(req.file){
+        //res.json(req.file);
+        var imagePath = req.file.path;
+        //console.log(imagePath);
+    } 
+    let familyName = req.body.familyName;
+    
+
+    //create new family add user as owner
+    let newFamily = await db.family.create({
+        owner:currentUserId,
+        familyName:familyName,
+        familyPhoto:imagePath
+
+    })
+    // and user and new family to mapping table linked by the ID's
+   let userMember = await db.membership.create({
+        userID:currentUserId,
+        familyID:newFamily.id,
+        isApproved:true
+    })
+
+    res.redirect("/familyDashboard")
 } catch(error){
     res.send(error)
 }
