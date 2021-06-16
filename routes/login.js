@@ -8,7 +8,15 @@ const bcrypt = require('bcryptjs');
 
 
 router.get('/login',(req, res) => {
-    res.send('login page')
+    res.send(`
+    <form action="/login" method="post">
+    username
+    <input type="text" name="username" /><br>
+    password
+    <input type="text" name="password" /><br>
+    
+    <input type="submit"/>
+    </form>`)
 })
 
 router.get ('/logout',(req,res) => {
@@ -18,8 +26,9 @@ router.get ('/logout',(req,res) => {
 
 passport.use(new localStrategy( async (username,password,done)=>{
     try{
-        let records = await db.users.findAll({where:{username:username}});
-
+        console.log('hello');
+        let records = await db.users.findAll({where:{name:username}});
+        console.log(records);
         if(records != null){
             let record = records[0];
             bcrypt.compare(password, record.password, (err, res) => {
