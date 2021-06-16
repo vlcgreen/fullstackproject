@@ -10,13 +10,12 @@ router.get("/familyDashboard", (req, res) => {
 });
 
 
-// GET  all recipes per family
+// GET  search family recipes
 router.get("/user_recipes/familyDashboard", async (req, res) => {
 
   let familyID = req.body.familyID;
-  console.log(familyID);
-  
-  let recipeID = await db.user_recipes.findAll(
+  // Search for family ID by name
+  let record = await db.user_recipes.findAll(
     {where: {
       userID: familyID, 
     }})
@@ -24,8 +23,14 @@ router.get("/user_recipes/familyDashboard", async (req, res) => {
   res.json({ data: recipeID });
 });
 
+router.get("/user_recipes", async (req, res) => {
+
+  let recipeData = await db.user_recipes.findAll();
+
+  res.json({ data: recipeData });
+});
+
 // search for family  id, then loop through users and find all where family id = that family id
 // then find all recipes for all those users
-
 
 module.exports = router;
