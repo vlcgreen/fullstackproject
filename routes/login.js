@@ -26,9 +26,9 @@ router.get ('/logout',(req,res) => {
 
 passport.use(new localStrategy( async (username,password,done)=>{
     try{
-        console.log('hello');
+        
         let records = await db.users.findAll({where:{name:username}});
-        console.log(records);
+        
         if(records != null){
             let record = records[0];
             bcrypt.compare(password, record.password, (err, res) => {

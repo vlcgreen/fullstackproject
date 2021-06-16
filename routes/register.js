@@ -4,6 +4,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const db = require('../models');
 
+//multer setup
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination:function(req,file,cb){
