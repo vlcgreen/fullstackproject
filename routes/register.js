@@ -3,17 +3,50 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const db = require('../models');
+
+//multer setup
 const multer = require('multer');
-const upload = multer({dest:'./uploads'})
+const storage = multer.diskStorage({
+    destination:function(req,file,cb){
+        cb(null,'./uploads')
+    },
+    filename:function(req,file,cb){
+        cb(null,file.originalname)
+    }
+});
+const fileFilter = (req,file,cb) => {
+    if(file.mimetype == 'image/jpeg' || file.mimetype == 'image/png'){
+        cb(null,true);
+    } else {
+        cb(null,false);
+    }
+}
+
+const upload = multer({storage:storage, fileFilter:fileFilter});
 
 router.get('/register',(req, res) => {
-    res.send('registation page')
+    res.send(`
+    <form action="/register" method="post" enctype="multipart/form-data">
+    username
+    <input type="text" name="username" /><br>
+    password
+    <input type="text" name="password" /><br>
+    <input type="file" name="image" />
+    <input type="submit"/>
+    </form>
+    `)
 })
 
-router.post('/register',async (req, res) => {
+router.post('/register',upload.single('image'),async (req, res) => {
     try{
+        if(req.file){
+            //res.json(req.file);
+            var imagePath = req.file.path;
+            //console.log(imagePath);
+        } 
+
     //get info from header
-    let {username,password,photo} = req.body;
+    let {username,password} = req.body;
     //hash our password using bcrypt
     let passwordEncrypted = bcrypt.hashSync(password,8);
 
@@ -22,7 +55,7 @@ router.post('/register',async (req, res) => {
     let user = await db.users.create({
         name:username,
         password:passwordEncrypted,
-        photo:photo,
+        photo:imagePath,
         roleID:0
     })
     res.redirect('/login');
@@ -34,49 +67,3 @@ router.post('/register',async (req, res) => {
 })
 
 module.exports = router;
-    
-    
-    
-    
-    
-    
-// router.post('/joinFamily',async (req,res) => {
-
-//     let {familyName,famliyPhoto} = req.body
-// 
-//     //get user id off of cookie
-
-//     if(db.family.familyName){
-//         //add user to mapping table as belonging to group ID
-//         //find one (first) instance group.id associated with groupName
-//         let family = await db.family.findOne({where:{familyName:familyName}});
-//         let familyId = family.id;
-//         //add user to table
-//         db.membership.create({
-//             userID: user.id,
-//             familyiD: familyId,
-//             isApproved:false
-//         });
-//     } else {
-//     //message : familyName doesn't exist, do you want to create a family?
-//     res.redirect('/createFamily')
-//     }
-    
-// })
-
-
-
-
-
-// router.post('/createFamily',async(req,res) => {
-//     //create new family add user as owner
-//     let newGroup = await db.group.create({
-//         groupName:groupName,
-//     })
-//     // and user and new family to mapping table linked by the ID's
-//     db.group_user_map.create({
-//         userID:user.id,
-//         groupName:newGroup.groupName
-//     })
-    
-// })
