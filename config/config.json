@@ -1,5 +1,6 @@
 {
   "development": {
+
     "username": "pfaptxzb",
     "password": "shkZ7if1ZSDn13wjQ9ScRevZNVNoUs1x",
     "database": "pfaptxzb",
@@ -7,3 +8,4 @@
     "dialect": "postgres"
   }
 } 
+
