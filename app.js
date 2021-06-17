@@ -40,6 +40,7 @@ app.use(require('./routes/register'));
 app.use(require('./routes/login'));
 app.use(require('./routes/addFamily'));
 app.use(require('./routes/joinFamily'));
+app.use(require('./routes/updateDB'));
 
 
 

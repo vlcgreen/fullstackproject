@@ -8,6 +8,7 @@ const queryInterface = sequelize.getQueryInterface();
 
 router.post("/updateDB",(req,res) => {
     //use queryInterface here to make any changes you need and then comment them out once complete
+    
 })
 
 
