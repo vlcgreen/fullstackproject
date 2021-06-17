@@ -22,6 +22,10 @@ module.exports = {
       },
       userID: {
         type: Sequelize.INTEGER,
+        references: {   
+          model: 'users',
+          key: 'id'
+        }
       },
       tag: {
         type: Sequelize.STRING,

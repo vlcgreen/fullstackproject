@@ -12,7 +12,11 @@ module.exports = {
         type: Sequelize.STRING
       },
       owner: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {   
+          model: 'users',
+          key: 'id'
+        }
       },
       familyPhoto: {
         type: Sequelize.STRING

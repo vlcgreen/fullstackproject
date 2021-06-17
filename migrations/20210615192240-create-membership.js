@@ -9,10 +9,18 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       userID: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {   
+          model: 'users',
+          key: 'id'
+        }
       },
       familyID: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {   
+          model: 'family',
+          key: 'id'
+        }
       },
       isApproved: {
         type: Sequelize.BOOLEAN
