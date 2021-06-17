@@ -30,7 +30,8 @@ app.use(passport.session());
 
 //routes
 // app.use(require('./routes/index'));
-app.use(require("./routes/my-profile"));
+app.use(require("./routes/home"));
+// app.use(require("./routes/home"));
 app.use(require("./routes/familyDashboard"));
 // app.use(require('./routes/login'));
 // app.use(require('./routes/recipes'));
