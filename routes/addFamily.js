@@ -69,7 +69,7 @@ try{
             familyID:newFamily.id,
             isApproved:true
         })
-        //update currentUserId roleID to 1
+        //update currentUserId roleID to 2
         // let updateUserRole = await db.users.update({roleID:1},{where:{id:currentUserId}});
 
         res.redirect("/familyDashboard")
