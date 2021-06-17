@@ -25,4 +25,3 @@ module.exports = (sequelize, DataTypes) => {
   });
   return family;
 };
-
