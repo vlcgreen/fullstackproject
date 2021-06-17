@@ -9,28 +9,51 @@ router.get("/familyDashboard", (req, res) => {
   res.send("family dashboard");
 });
 
-
-// GET  search family recipes
-router.get("/user_recipes/familyDashboard", async (req, res) => {
-
-  let familyID = req.body.familyID;
-  // Search for family ID by name
-  let record = await db.user_recipes.findAll(
-    {where: {
-      userID: familyID, 
-    }})
-    
-  res.json({ data: recipeID });
-});
-
-router.get("/user_recipes", async (req, res) => {
-
-  let recipeData = await db.user_recipes.findAll();
-
-  res.json({ data: recipeData });
-});
-
-// search for family  id, then loop through users and find all where family id = that family id
+// GET / Show all family recipes
+// localhost:3000/familyDashboard/search
 // then find all recipes for all those users
+router.get("/familyDashboard/search", async (req, res) => {
+  let familyID = req.body.familyID;
+  // search for specific family id in membership and gives back all users
+  let familyData = await db.membership.findAll({
+    include: [
+      {
+        model: db.users,
+        required: true,
+        // include: [
+        //   {
+        //     model: db.user_recipes,
+        //   },
+        // ],
+      },
+    ],
+    where: { familyID: familyID },
+  });
+
+  console.log("fm_data", familyData);
+
+  // create an empty object to put the users into
+  let familyRecipes = [];
+
+  //  then loop through familyData object and reference each user ID into the recipe table and pull all relevant recipes
+  // for (person of familyData) {
+  //   console.log("person id", person.id);
+  //   let personsRecipes = await db.user_recipes.findAll({
+  //     where: { userID: person.id },
+  //   });
+
+  //   //console.log("userdata", userData[0]);
+
+  //   familyRecipes.push(personsRecipes);
+
+  //   // console.log(familyRecipes[1]);
+  // }
+
+  res.json(familyRecipes);
+});
+
+// GET / Search family recipe by title or category
+
+// Post / User can give rating to a recipe and the average rating will be updated
 
 module.exports = router;
