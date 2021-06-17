@@ -64,12 +64,13 @@ try{
 
         })
         // add user and new family to mapping table linked by the ID's
-    let userMember = await db.membership.create({
+        let userMember = await db.membership.create({
             userID:currentUserId,
             familyID:newFamily.id,
             isApproved:true
         })
         //update currentUserId roleID to 1
+        // let updateUserRole = await db.users.update({roleID:1},{where:{id:currentUserId}});
 
         res.redirect("/familyDashboard")
     }
