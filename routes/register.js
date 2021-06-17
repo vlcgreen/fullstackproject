@@ -39,9 +39,10 @@ router.get('/register',(req, res) => {
 
 router.post('/register',upload.single('image'),async (req, res) => {
     try{
+        let imagePath = null
         if(req.file){
             //res.json(req.file);
-            var imagePath = req.file.path;
+        imagePath = req.file.path;
             //console.log(imagePath);
         } 
 
@@ -56,7 +57,8 @@ router.post('/register',upload.single('image'),async (req, res) => {
         name:username,
         password:passwordEncrypted,
         photo:imagePath,
-        roleID:0
+        roleID:1,
+        email:'me@whoever.com'
     })
     res.redirect('/login');
     }
