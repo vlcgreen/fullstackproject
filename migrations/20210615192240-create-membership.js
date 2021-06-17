@@ -16,7 +16,11 @@ module.exports = {
         }
       },
       familyID: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {   
+          model: 'family',
+          key: 'id'
+        }
       },
       isApproved: {
         type: Sequelize.BOOLEAN
