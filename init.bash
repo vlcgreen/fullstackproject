@@ -1,3 +1,4 @@
+
 # sequelize model:generate --name users --attributes name:string,password:string,photo:string,roleID:integer,email:string
 # sequelize model:generate --name membership --attributes userID:integer,familyID:integer,isApproved:boolean
 # sequelize model:generate --name family --attributes familyName:string,owner:integer,familyPhoto:string
