@@ -8,15 +8,7 @@ const bcrypt = require('bcryptjs');
 
 
 router.get('/login',(req, res) => {
-    res.send(`
-    <form action="/login" method="post">
-    username
-    <input type="text" name="username" /><br>
-    password
-    <input type="text" name="password" /><br>
-    
-    <input type="submit"/>
-    </form>`)
+    res.render('login')
 })
 
 router.get ('/logout',(req,res) => {
@@ -26,13 +18,15 @@ router.get ('/logout',(req,res) => {
 
 passport.use(new localStrategy( async (username,password,done)=>{
     try{
-        
+        console.log('working line 21');
         let records = await db.users.findAll({where:{name:username}});
+        console.log(records);
         
         if(records != null){
             let record = records[0];
             bcrypt.compare(password, record.password, (err, res) => {
                 if(res){
+                    console.log('passport working');
                     done(null,{id:record.id,username:record.username});
                 } else {
                     done(null,false)
@@ -52,7 +46,8 @@ passport.use(new localStrategy( async (username,password,done)=>{
 }))
 
 router.post('/login',passport.authenticate('local',{failureRedirect:'/login'}),(req, res) => {
-    res.send('you made it through!')
+    // res.render('my_profile')
+    console.log('working');
     
 })
 

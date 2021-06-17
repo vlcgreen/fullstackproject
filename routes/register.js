@@ -38,14 +38,14 @@ router.post('/register',upload.single('image'),async (req, res) => {
         } 
 
     //get info from header
-    let {username,password, email} = req.body;
+    let {name,password, email} = req.body;
     //hash our password using bcrypt
     let passwordEncrypted = bcrypt.hashSync(password,8);
 
     //store header info in db
     //create user
     let user = await db.users.create({
-        name:username,
+        name:name,
         password:passwordEncrypted,
         photo:imagePath,
         roleID: 1,
