@@ -15,23 +15,26 @@ router.get('/joinFamily',(req,res) => {
 
 router.post('/joinFamily',async (req,res) => {
 
-    let {familyName} = req.body;
+    let currentFamilyName = req.body.familyName;
     let currentUserId = req.user.id;
 
     //get user id off of cookie
+    console.log(db.family);
 
-    if(db.family.familyName){
-        //find one (first) instance group.id associated with groupName
-        let family = await db.family.findOne({where:{familyName:familyName}});
-        let familyId = family.id;
+    const isFamily = await db.family.findOne({where:{familyName:currentFamilyName}});
+    if(isFamily){
+        res.send(`You have joined ${currentFamilyName}`)
+        
+        let familyId = isFamily.id;
+        
         //add user to table
         db.membership.create({
             userID: currentUserId,
-            familyiD: familyId,
+            familyID: familyId,
             isApproved:false
         });
     } else {
-    res.send(`${familyName} doesn't exist, do you want to create a family?`)
+    res.send(`${currentFamilyName} doesn't exist, do you want to create a family?`)
     
     //res.redirect('/addFamily')
     }

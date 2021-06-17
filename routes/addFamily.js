@@ -50,22 +50,28 @@ try{
     } 
     let familyName = req.body.familyName;
     
+    const isFamily = await db.family.findOne({where:{familyName:familyName}});
+    if(isFamily){
+        res.send(`
+        ${familyName} aleady exists, please choose another name
+        `)
+    } else {
+        //create new family add user as owner
+        let newFamily = await db.family.create({
+            owner:currentUserId,
+            familyName:familyName,
+            familyPhoto:imagePath
 
-    //create new family add user as owner
-    let newFamily = await db.family.create({
-        owner:currentUserId,
-        familyName:familyName,
-        familyPhoto:imagePath
+        })
+        // and user and new family to mapping table linked by the ID's
+    let userMember = await db.membership.create({
+            userID:currentUserId,
+            familyID:newFamily.id,
+            isApproved:true
+        })
 
-    })
-    // and user and new family to mapping table linked by the ID's
-   let userMember = await db.membership.create({
-        userID:currentUserId,
-        familyID:newFamily.id,
-        isApproved:true
-    })
-
-    res.redirect("/familyDashboard")
+        res.redirect("/familyDashboard")
+    }
 } catch(error){
     res.send(error)
 }
