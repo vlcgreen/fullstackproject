@@ -29,6 +29,8 @@ router.get('/register',(req, res) => {
     <form action="/register" method="post" enctype="multipart/form-data">
     username
     <input type="text" name="username" /><br>
+    email
+    <input type="email" name="email" /><br>
     password
     <input type="text" name="password" /><br>
     <input type="file" name="image" />
@@ -46,7 +48,7 @@ router.post('/register',upload.single('image'),async (req, res) => {
         } 
 
     //get info from header
-    let {username,password} = req.body;
+    let {username,password,email} = req.body;
     //hash our password using bcrypt
     let passwordEncrypted = bcrypt.hashSync(password,8);
 
@@ -56,7 +58,9 @@ router.post('/register',upload.single('image'),async (req, res) => {
         name:username,
         password:passwordEncrypted,
         photo:imagePath,
-        roleID:0
+        roleID:1,
+        email:email
+        
     })
     res.redirect('/login');
     }

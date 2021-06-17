@@ -19,10 +19,6 @@ module.exports = {
       },
       roleID: {
         type: Sequelize.INTEGER,
-        references: {   
-          model: 'roles',
-          key: 'id'
-        }
       },
       email: {
         type: Sequelize.STRING
