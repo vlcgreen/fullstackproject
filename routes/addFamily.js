@@ -63,12 +63,13 @@ try{
             familyPhoto:imagePath
 
         })
-        // and user and new family to mapping table linked by the ID's
+        // add user and new family to mapping table linked by the ID's
     let userMember = await db.membership.create({
             userID:currentUserId,
             familyID:newFamily.id,
             isApproved:true
         })
+        //update currentUserId roleID to 1
 
         res.redirect("/familyDashboard")
     }
