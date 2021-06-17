@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.user_recipes.belongsTo(models.users);
     }
   };
   user_recipes.init({
@@ -19,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     directions: DataTypes.STRING,
     image: DataTypes.STRING,
     userID: DataTypes.INTEGER,
-    tagID: DataTypes.INTEGER
+    tag: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'user_recipes',
