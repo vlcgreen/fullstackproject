@@ -64,38 +64,98 @@
 	<main class="main" role="main">
 		<!--wrap-->
 		<div class="wrap clearfix">
+			<!--breadcrumbs-->
+			<nav class="breadcrumbs">
+				<ul>
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li>Submit a recipe</li>
+				</ul>
+			</nav>
+			<!--//breadcrumbs-->
+			
 			<!--row-->
 			<div class="row">
-			<!--content-->
-            <section class="content center full-width">
-                <div class="modal container">
-                    <h3>Register</h3>
-                    <form action="/register" method="post" enctype="multipart/form-data">
-                        
-                    <div class="f-row">
-                        <input type="text" placeholder="Your name" />
-                    </div>
-                    <div class="f-row">
-                        <input type="email" placeholder="Your email" />
-                    </div>
-                    <div class="f-row">
-                        <input type="password" placeholder="Your password" />
-                    </div>
-                    <div class="f-row">
-                        <input type="password" placeholder="Retype password" />
-                    </div>
-                    <div class="f-row">
-                        <label for="image">Profile picture</label>
-                        <input type="file" name="image" />
-                    </div>
-                    <div class="f-row bwrap">
-                        <input type="submit" value="register" />
-                    </div>
-                    <p>Already have an account yet? <a href="login.ejs">Log in.</a></p>
-                </form>
-                </div>
-            </section>
-
+				<header class="s-title">
+					<h1>Add a new recipe</h1>
+				</header>
+					
+				<!--content-->
+				<section class="content full-width">
+					<div class="submit_recipe container">
+						<form>
+							<section>
+								<h2>Basics</h2>
+								<p>All fields are required.</p>
+								<div class="f-row">
+									<div class="full"><input type="text" placeholder="Recipe title" /></div>
+								</div>
+								<div class="f-row">
+									<div class="third"><input type="text" placeholder="Preparation time" /></div>
+									<div class="third"><input type="text" placeholder="Cooking time" /></div>
+									<div class="third"><input type="text" placeholder="Difficulty" /></div>
+								</div>
+								<div class="f-row">
+									<div class="third"><input type="text" placeholder="Serves how many people?" /></div>
+									<div class="third"><select><option selected="selected">Select a category</option></select></div>
+								</div>
+							</section>
+							
+							<section>
+								<h2>Description</h2>
+								<div class="f-row">
+									<div class="full"><textarea placeholder="Recipe title"></textarea></div>
+								</div>
+							</section>	
+							
+							<section>
+								<h2>Ingredients</h2>
+								<div class="f-row ingredient">
+									<div class="large"><input type="text" placeholder="Ingredient" /></div>
+									<div class="small"><input type="text" placeholder="Quantity" /></div>
+									<div class="third"><select><option selected="selected">Select a category</option></select></div>
+									<button class="remove">-</button>
+								</div>
+								<div class="f-row full">
+									<button class="add">Add an ingredient</button>
+								</div>
+							</section>	
+							
+							<section>
+								<h2>Instructions <span>(enter instructions, each step at a time)</span></h2>
+								<div class="f-row instruction">
+									<div class="full"><input type="text" placeholder="Instructions" /></div>
+									<button class="remove">-</button>
+								</div>
+								<div class="f-row full">
+									<button class="add">Add a step</button>
+								</div>
+							</section>
+							
+							<section>
+								<h2>Photo</h2>
+								<div class="f-row full">
+									<input type="file" />
+								</div>
+							</section>	
+							
+							<section>
+								<h2>Status <span>(would you like to further edit this recipe or are you ready to publish it?)</span></h2>
+								<div class="f-row full">
+									<input type="radio" id="r1" name="radio"/>
+									<label for="r1">I am still working on it</label>
+								</div>
+								<div class="f-row full">
+									<input type="radio" id="r2" name="radio"/>
+									<label for="r2">I am ready to publish this recipe</label>
+								</div>
+							</section>
+							
+							<div class="f-row full">
+								<input type="submit" class="button" id="submitRecipe" value="Publish this recipe" />
+							</div>
+						</form>
+					</div>
+				</section>
 				<!--//content-->
 			</div>
 			<!--//row-->
