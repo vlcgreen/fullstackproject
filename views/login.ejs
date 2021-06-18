@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="SocialChef - Social Recipe HTML Template" />
+	<meta name="description" content="SocialChef - Social Recipe HTML Template">
+	<meta name="author" content="themeenergy.com">
+	
+	<title>Heart Food</title>
+	
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/icons.css" />
+	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
+	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
+	<link rel="shortcut icon" href="/fullstackproject/public/images/favicon.ico" />
+	
+</head>
+<body>
+	<!--preloader-->
+	<div class="preloader">
+		<div class="spinner"></div>
+	</div>
+	<!--//preloader-->
+	
+	<!--header-->
+	<header class="head" role="banner">
+		<!--wrap-->
+		<div class="wrap clearfix">
+			<a href="index.html" title="SocialChef" class="logo"><img src="images/ico/Heart_Food_logo.png" height="60px" alt="Heart Food logo"/></a>
+			
+			<nav class="main-nav" role="navigation" id="menu">
+				<ul>
+					<li class="current-menu-item"><a href="index.html" title="Home"><span>Home</span></a></li>
+					<li><a href="recipes.html" title="Recipes"><span>Recipes</span></a>
+						<ul>
+							<li><a href="recipes2.html" title="Recipes 2">Recipes 2</a></li><li><a href="recipe.html" title="Recipe">Recipe</a></li>
+						</ul>
+					</li>
+					<li><a href="/fullstackproject/views/login.ejs" title="Login"><span>Login</span></a>
+					</li>
+					<li><a href="contact.html" title="Contact"><span>Contact</span></a></li>				</ul>
+				</ul>
+			</nav>
+			
+			<nav class="user-nav" role="navigation">
+				<ul>
+					<li class="light"><a href="find_recipe.html" title="Search for recipes"><i class="icon icon-themeenergy_search"></i> <span>Search for recipes</span></a></li>
+					<li class="medium"><a href="my_profile.html" title="My account"><i class="icon icon-themeenergy_chef-hat"></i> <span>My account</span></a></li>
+					<li class="dark"><a href="#" title="My Family"><i class="icon icon-themeenergy_love"></i> <span>My Family</span></a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!--//header-->
+		
+	<!--main-->
+	<main class="main" role="main">
+		<!--wrap-->
+		<div class="wrap clearfix">
+			<!--row-->
+			<div class="row">
+			<!--content-->
+				<section class="content center full-width">
+					<div class="modal container">
+						<form action="/login" method="POST">
+						<h3>Login</h3>
+						<div class="f-row">
+							<input type="text" placeholder="Your username" name="username"/>
+						</div>
+						<div class="f-row">
+							<input type="password" placeholder="Your password" name="password"/>
+						</div>
+						
+						<div class="f-row bwrap">
+							<input type="submit" value="login" />
+						</div>
+					</form>
+						<p><a href="#">Forgotten password?</a></p>
+						<p>Dont have an account yet? <a href="register">Sign up.</a></p>
+					</div>
+				</section>
+				<!--//content-->
+			</div>
+			<!--//row-->
+		</div>
+		<!--//wrap-->
+	</main>
+	<!--//main-->
+	
+	
+	<!--footer-->
+	<footer class="foot" role="contentinfo">
+		<div class="wrap clearfix">
+			<div class="row">
+				<article class="two-third">
+					<h5>About Heart Food</h5>
+					<p>Heart Food is a social community which allows your family to connect and share your favorite recipes.</p>
+				</article>
+				<article class="one-third">
+					<h5>Need help?</h5>
+					<p>Contact us</p>
+					<!-- <p><em>T:</em>  +1 555 555 555<br /><em>E:</em>  <a href="#">socialchef@email.com</a></p> -->
+				</article>				
+				<div class="bottom">
+					<p class="copy">Copyright 2021 Heart Food. All rights reserved</p>
+					
+					<nav class="foot-nav">
+						<ul>
+							<li><a href="index.html" title="Home">Home</a></li>
+							<li><a href="recipes.html" title="Recipes">Recipes</a></li>
+							<li><a href="contact.html" title="Contact">Contact</a></li>    
+							<li><a href="find_recipe.html" title="Search for recipes">Search for recipes</a></li>
+							<li><a href="login.html" title="Login">Login</a></li>	<li><a href="register.html" title="Register">Register</a></li>													
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--//footer-->
+	
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script src="js/jquery.uniform.min.js"></script>
+	<script src="js/jquery.slicknav.min.js"></script>
+	<script src="js/scripts.js"></script>
+</body>
+</html>
+
+
