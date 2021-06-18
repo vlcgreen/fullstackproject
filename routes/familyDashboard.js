@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../models/family");
+const db = require("../models");
 router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
@@ -16,15 +16,19 @@ router.get("/familyDashboard/search", async (req, res) => {
   let familyID = req.body.familyID;
   // search for specific family id in membership and gives back all users
   let familyData = await db.membership.findAll({
+    // "include" creates joins
     include: [
       {
+        // joining membership to users
         model: db.users,
+        // creates inner join when set to true, pulls data if foreign keys are found in associated tables
         required: true,
-        // include: [
-        //   {
-        //     model: db.user_recipes,
-        //   },
-        // ],
+        // joining users to user recipes
+        include: [
+          {
+            model: db.user_recipes,
+          },
+        ],
       },
     ],
     where: { familyID: familyID },
@@ -49,7 +53,7 @@ router.get("/familyDashboard/search", async (req, res) => {
   //   // console.log(familyRecipes[1]);
   // }
 
-  res.json(familyRecipes);
+  res.json(familyData);
 });
 
 // GET / Search family recipe by title or category
