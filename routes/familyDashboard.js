@@ -84,5 +84,8 @@ router.get("/familyDashboard/search-by-title", async (req, res) => {
 
 
 // Post / User can give rating to a recipe and the average rating will be updated
+//give me all the recipes
+// join user recipes with rating table and give average rating
+
 
 module.exports = router;
