@@ -1,7 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
+
+
 const auth = require("../auth")
+
 router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
@@ -35,7 +38,7 @@ router.post("/user_recipes/new", async (req, res) => {
       directions: req.body.directions,
       image: req.body.image,
       userID: req.body.userID,
-      tagID: req.body.tagID,
+      tag: req.body.tag,
     });
 
     res.json({ data: result });

@@ -10,10 +10,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
 
+
      
 
       models.user_recipes.belongsTo(models.users, { foreignKey: "userID" });
-
     }
   }
   user_recipes.init(
