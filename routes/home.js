@@ -20,7 +20,6 @@ router.get("/home",auth,(req, res) => {
 
 // GET all user recipes //
 router.get("/user_recipes", async (req, res) => {
-
   let recipeData = await db.user_recipes.findAll();
 
   res.json({ data: recipeData });
@@ -46,7 +45,7 @@ router.post("/user_recipes/new", async (req, res) => {
 });
 
 // PUT /user_recipes/ updating //
-router.put("/user_recipes/", async (req, res) => {
+router.put("/user_recipes", async (req, res) => {
   try {
 
     let id = req.body.id;
@@ -72,7 +71,7 @@ router.put("/user_recipes/", async (req, res) => {
 
 // DELETE recipes //
 
-router.delete("/user_recipes/delete/", async (req, res) => {
+router.delete("/user_recipes/delete", async (req, res) => {
   try {
     let id = req.body.id;
     let results = await db.user_recipes.destroy({ where: { id: id } });
