@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../models/user_recipes");
+const db = require("../models");
 router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
@@ -62,7 +62,7 @@ router.put("/user_recipes", async (req, res) => {
 
 // DELETE recipes //
 
-router.delete("/user_recipes/delete/", async (req, res) => {
+router.delete("/user_recipes/delete", async (req, res) => {
   try {
     let id = req.body.id;
     let results = await db.user_recipes.destroy({ where: { id: id } });

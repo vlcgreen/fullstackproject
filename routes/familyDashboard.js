@@ -11,7 +11,6 @@ router.get("/familyDashboard", (req, res) => {
 
 // GET / Show all family recipes
 // localhost:3000/familyDashboard/search
-// then find all recipes for all those users
 router.get("/familyDashboard/search", async (req, res) => {
   let familyID = req.body.familyID;
   // search for specific family id in membership and gives back all users
@@ -26,30 +25,26 @@ router.get("/familyDashboard/search", async (req, res) => {
         // joining users to user recipes
         include: [
           {
-            model: db.user_recipes,
+            model: db.user_recipes
           },
         ],
       },
     ],
-    where: { familyID: familyID },
+    where: {
+      familyID: familyID,
+    },
   });
-
-  console.log("fm_data", familyData);
 
   // create an empty object to put the users into
   let familyRecipes = [];
-
   //  then loop through familyData object and reference each user ID into the recipe table and pull all relevant recipes
   // for (person of familyData) {
   //   console.log("person id", person.id);
   //   let personsRecipes = await db.user_recipes.findAll({
   //     where: { userID: person.id },
   //   });
-
   //   //console.log("userdata", userData[0]);
-
   //   familyRecipes.push(personsRecipes);
-
   //   // console.log(familyRecipes[1]);
   // }
 
@@ -57,6 +52,36 @@ router.get("/familyDashboard/search", async (req, res) => {
 });
 
 // GET / Search family recipe by title or category
+router.get("/familyDashboard/search-by-title", async (req, res) => {
+  let familyID = req.body.familyID;
+  let title = req.body.title;
+  // search for specific family id in membership and gives back all users
+  let familyData = await db.membership.findAll({
+    // "include" creates joins
+    include: [
+      {
+        // joining membership to users
+        model: db.users,
+        // creates inner join when set to true, pulls data if foreign keys are found in associated tables
+        required: true,
+        // joining users to user recipes
+        include: [
+          {
+            model: db.user_recipes,
+            where: {
+              title: title,
+            },
+          },
+        ],
+      },
+    ],
+    where: {
+      familyID: familyID,
+    },
+  });
+  res.json(familyData);
+});
+
 
 // Post / User can give rating to a recipe and the average rating will be updated
 
