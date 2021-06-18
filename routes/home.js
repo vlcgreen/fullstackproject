@@ -11,7 +11,11 @@ router.use(express.json());
 // renders the home front end page
 router.get("/home",auth,(req, res) => {
   let currentUser = req.user;
-  let photoPath = currentUser.photo.substring(7);
+  if(currentUser.photo){
+  var photoPath = currentUser.photo.substring(7);
+  } else {
+    var photoPath = NULL;
+  }
 
   //console.log(currentUser.photo.substring(7));
   res.render("my_profile",{
