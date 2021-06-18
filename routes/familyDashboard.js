@@ -4,9 +4,9 @@ const db = require("../models");
 router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
-// renders the home front end page
+// renders the family dashboard
 router.get("/familyDashboard", (req, res) => {
-  res.send("family dashboard");
+  res.render("familyDashboard");
 });
 
 // GET / Show all family recipes
@@ -25,7 +25,7 @@ router.get("/familyDashboard/search", async (req, res) => {
         // joining users to user recipes
         include: [
           {
-            model: db.user_recipes
+            model: db.user_recipes,
           },
         ],
       },
@@ -72,6 +72,5 @@ router.get("/familyDashboard/search-by-title", async (req, res) => {
 // Post / User can give rating to a recipe and the average rating will be updated
 //give me all the recipes
 // join user recipes with rating table and give average rating
-
 
 module.exports = router;
