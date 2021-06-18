@@ -2,27 +2,25 @@ const express = require("express");
 const router = express.Router();
 const db = require("../models");
 
-
-const auth = require("../auth")
+const auth = require("../auth");
 
 router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
 // renders the home front end page
-router.get("/home",auth,(req, res) => {
+router.get("/home", auth, (req, res) => {
   let currentUser = req.user;
-  if(currentUser.photo){
-  var photoPath = currentUser.photo.substring(7);
+  if (currentUser.photo) {
+    var photoPath = currentUser.photo.substring(7);
   } else {
-    var photoPath = NULL;
+    var photoPath = "images/avatar.jpg";
   }
 
   //console.log(currentUser.photo.substring(7));
-  res.render("my_profile",{
-      profliePicUrl:photoPath,
-      userName:currentUser.name
-  }
-  );
+  res.render("my_profile", {
+    profliePicUrl: photoPath,
+    userName: currentUser.name,
+  });
 });
 
 // GET all user recipes //
@@ -31,7 +29,6 @@ router.get("/user_recipes", async (req, res) => {
 
   res.json({ data: recipeData });
 });
-
 
 //   add new recipe //
 router.post("/user_recipes/new", async (req, res) => {
@@ -54,7 +51,6 @@ router.post("/user_recipes/new", async (req, res) => {
 // PUT /user_recipes/ updating //
 router.put("/user_recipes", async (req, res) => {
   try {
-
     let id = req.body.id;
 
     let records = await db.user_recipes.update(

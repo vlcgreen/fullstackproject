@@ -4,9 +4,9 @@ const db = require("../models");
 router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
-// renders the home front end page
+// renders the family dashboard
 router.get("/familyDashboard", (req, res) => {
-  res.send("family dashboard");
+  res.render("familyDashboard");
 });
 
 // GET / Show all family recipes
@@ -25,7 +25,7 @@ router.get("/familyDashboard/search", async (req, res) => {
         // joining users to user recipes
         include: [
           {
-            model: db.user_recipes
+            model: db.user_recipes,
           },
         ],
       },
@@ -34,19 +34,6 @@ router.get("/familyDashboard/search", async (req, res) => {
       familyID: familyID,
     },
   });
-
-  // create an empty object to put the users into
-  let familyRecipes = [];
-  //  then loop through familyData object and reference each user ID into the recipe table and pull all relevant recipes
-  // for (person of familyData) {
-  //   console.log("person id", person.id);
-  //   let personsRecipes = await db.user_recipes.findAll({
-  //     where: { userID: person.id },
-  //   });
-  //   //console.log("userdata", userData[0]);
-  //   familyRecipes.push(personsRecipes);
-  //   // console.log(familyRecipes[1]);
-  // }
 
   res.json(familyData);
 });
@@ -82,10 +69,8 @@ router.get("/familyDashboard/search-by-title", async (req, res) => {
   res.json(familyData);
 });
 
-
 // Post / User can give rating to a recipe and the average rating will be updated
 //give me all the recipes
 // join user recipes with rating table and give average rating
-
 
 module.exports = router;
