@@ -1,7 +1,9 @@
-{
+const env = require('./env.js');
+
+module.exports = {
   "development": {
     "username": "pfaptxzb",
-    "password": "shkZ7if1ZSDn13wjQ9ScRevZNVNoUs1x",
+    "password": env.DB_PASSWORD,
     "database": "pfaptxzb",
     "host": "batyr.db.elephantsql.com",
     "dialect": "postgres"
