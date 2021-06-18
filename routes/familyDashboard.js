@@ -35,19 +35,6 @@ router.get("/familyDashboard/search", async (req, res) => {
     },
   });
 
-  // create an empty object to put the users into
-  let familyRecipes = [];
-  //  then loop through familyData object and reference each user ID into the recipe table and pull all relevant recipes
-  // for (person of familyData) {
-  //   console.log("person id", person.id);
-  //   let personsRecipes = await db.user_recipes.findAll({
-  //     where: { userID: person.id },
-  //   });
-  //   //console.log("userdata", userData[0]);
-  //   familyRecipes.push(personsRecipes);
-  //   // console.log(familyRecipes[1]);
-  // }
-
   res.json(familyData);
 });
 
@@ -81,7 +68,6 @@ router.get("/familyDashboard/search-by-title", async (req, res) => {
   });
   res.json(familyData);
 });
-
 
 // Post / User can give rating to a recipe and the average rating will be updated
 //give me all the recipes
