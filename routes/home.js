@@ -1,17 +1,25 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
+const auth = require("../auth")
 router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
 // renders the home front end page
-router.get("/home", (req, res) => {
-  res.send("home");
+router.get("/home",auth,(req, res) => {
+  let currentUser = req.user;
+  let photoPath = currentUser.photo.substring(7);
+
+  //console.log(currentUser.photo.substring(7));
+  res.render("my_profile",{
+      profliePicUrl:photoPath,
+      userName:currentUser.name
+  }
+  );
 });
 
 // GET all user recipes //
 router.get("/user_recipes", async (req, res) => {
-
   let recipeData = await db.user_recipes.findAll();
 
   res.json({ data: recipeData });
@@ -37,7 +45,7 @@ router.post("/user_recipes/new", async (req, res) => {
 });
 
 // PUT /user_recipes/ updating //
-router.put("/user_recipes/", async (req, res) => {
+router.put("/user_recipes", async (req, res) => {
   try {
 
     let id = req.body.id;
@@ -63,7 +71,7 @@ router.put("/user_recipes/", async (req, res) => {
 
 // DELETE recipes //
 
-router.delete("/user_recipes/delete/", async (req, res) => {
+router.delete("/user_recipes/delete", async (req, res) => {
   try {
     let id = req.body.id;
     let results = await db.user_recipes.destroy({ where: { id: id } });
