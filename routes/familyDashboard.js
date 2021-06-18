@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const db = require("../models/family");
+const db = require("../models");
 router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
@@ -9,28 +9,83 @@ router.get("/familyDashboard", (req, res) => {
   res.send("family dashboard");
 });
 
-
-// GET  search family recipes
-router.get("/user_recipes/familyDashboard", async (req, res) => {
-
+// GET / Show all family recipes
+// localhost:3000/familyDashboard/search
+router.get("/familyDashboard/search", async (req, res) => {
   let familyID = req.body.familyID;
-  // Search for family ID by name
-  let record = await db.user_recipes.findAll(
-    {where: {
-      userID: familyID, 
-    }})
-    
-  res.json({ data: recipeID });
+  // search for specific family id in membership and gives back all users
+  let familyData = await db.membership.findAll({
+    // "include" creates joins
+    include: [
+      {
+        // joining membership to users
+        model: db.users,
+        // creates inner join when set to true, pulls data if foreign keys are found in associated tables
+        required: true,
+        // joining users to user recipes
+        include: [
+          {
+            model: db.user_recipes
+          },
+        ],
+      },
+    ],
+    where: {
+      familyID: familyID,
+    },
+  });
+
+  // create an empty object to put the users into
+  let familyRecipes = [];
+  //  then loop through familyData object and reference each user ID into the recipe table and pull all relevant recipes
+  // for (person of familyData) {
+  //   console.log("person id", person.id);
+  //   let personsRecipes = await db.user_recipes.findAll({
+  //     where: { userID: person.id },
+  //   });
+  //   //console.log("userdata", userData[0]);
+  //   familyRecipes.push(personsRecipes);
+  //   // console.log(familyRecipes[1]);
+  // }
+
+  res.json(familyData);
 });
 
-router.get("/user_recipes", async (req, res) => {
-
-  let recipeData = await db.user_recipes.findAll();
-
-  res.json({ data: recipeData });
+// GET / Search family recipe by title or category
+router.get("/familyDashboard/search-by-title", async (req, res) => {
+  let familyID = req.body.familyID;
+  let title = req.body.title;
+  // search for specific family id in membership and gives back all users
+  let familyData = await db.membership.findAll({
+    // "include" creates joins
+    include: [
+      {
+        // joining membership to users
+        model: db.users,
+        // creates inner join when set to true, pulls data if foreign keys are found in associated tables
+        required: true,
+        // joining users to user recipes
+        include: [
+          {
+            model: db.user_recipes,
+            where: {
+              title: title,
+            },
+          },
+        ],
+      },
+    ],
+    where: {
+      familyID: familyID,
+    },
+  });
+  res.json(familyData);
 });
 
-// search for family  id, then loop through users and find all where family id = that family id
-// then find all recipes for all those users
+
+// Post / User can give rating to a recipe and the average rating will be updated
+//give me all the recipes
+// join user recipes with rating table and give average rating
+
 
 module.exports = router;
