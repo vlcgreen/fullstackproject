@@ -18,7 +18,7 @@ router.get ('/logout',(req,res) => {
 
 passport.use(new localStrategy( async (username,password,done)=>{
     try{
-        console.log('working line 21');
+        
         let records = await db.users.findAll({where:{name:username}});
         console.log(records);
         
@@ -26,7 +26,6 @@ passport.use(new localStrategy( async (username,password,done)=>{
             let record = records[0];
             bcrypt.compare(password, record.password, (err, res) => {
                 if(res){
-                    console.log('passport working');
                     done(null,{id:record.id,username:record.username});
                 } else {
                     done(null,false)
@@ -46,8 +45,8 @@ passport.use(new localStrategy( async (username,password,done)=>{
 }))
 
 router.post('/login',passport.authenticate('local',{failureRedirect:'/login'}),(req, res) => {
-    // res.render('my_profile')
-    console.log('working');
+    res.redirect('/home');
+    
     
 })
 
