@@ -1,12 +1,28 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
+const auth = require("../auth");
+
 router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
-// renders the family dashboard
-router.get("/familyDashboard", (req, res) => {
-  res.render("familyDashboard");
+
+// renders the home front end page
+router.get("/familyDashboard",auth, (req, res) => {
+  let currentUser = req.user;
+  
+  if(currentUser.photo){
+  var photoPath = currentUser.photo.substring(7);
+  console.log(photoPath);
+  } else {
+    var photoPath = 'images/avatar.jpg';
+  }
+  
+  res.render("familyDashboard",{
+    profliePicUrl:photoPath,
+    userName:currentUser.name
+  });
+
 });
 
 // GET / Show all family recipes

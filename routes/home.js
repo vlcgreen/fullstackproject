@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../models");
-
 const auth = require("../auth");
 
 router.use(express.urlencoded({ extended: false }));
@@ -10,17 +9,20 @@ router.use(express.json());
 // renders the home front end page
 router.get("/home", auth, (req, res) => {
   let currentUser = req.user;
-  if (currentUser.photo) {
-    var photoPath = currentUser.photo.substring(7);
-  } else {
-    var photoPath = "images/avatar.jpg";
-  }
 
-  //console.log(currentUser.photo.substring(7));
-  res.render("my_profile", {
-    profliePicUrl: photoPath,
-    userName: currentUser.name,
-  });
+    //console.log(currentUser.photo);
+    if(currentUser.photo){
+    var photoPath = currentUser.photo.substring(7);
+    } else {
+      var photoPath = 'images/avatar.jpg';
+    }
+  
+    res.render("my_profile",{
+        profliePicUrl:photoPath,
+        userName:currentUser.name
+    }
+    );
+
 });
 
 // GET all user recipes //
