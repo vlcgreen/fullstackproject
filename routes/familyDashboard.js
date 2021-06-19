@@ -6,7 +6,7 @@ router.use(express.json());
 
 // renders the home front end page
 router.get("/familyDashboard", (req, res) => {
-  res.send("family dashboard");
+  res.render("familyDashboard");
 });
 
 // GET / Show all family recipes

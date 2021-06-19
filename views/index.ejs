@@ -21,54 +21,11 @@
 	<!-- preloader-->
 	<div class="preloader">
 		<div class="spinner"></div>
-	</div> -->
-	<!--//preloader
-	
-	header
+	</div> 
 	<header class="head" role="banner">
-		wrap-->
-		<div class="wrap clearfix">
-			<a href="index.html" title="SocialChef" class="logo"><img src="images/ico/Heart_Food_logo.png" height="60px" alt="Heart Food logo"/></a>
-			
-			<nav class="main-nav" role="navigation" id="menu">
-				<ul>
-					<li class="current-menu-item"><a href="index.html" title="Home"><span>Home</span></a></li>
-					<li><a href="recipes.html" title="Recipes"><span>Recipes</span></a>
-						<ul>
-							<li><a href="recipes2.html" title="Recipes 2">Recipes 2</a></li><li><a href="recipe.html" title="Recipe">Recipe</a></li>
-						</ul>
-					</li>
-					<!-- <li><a href="blog.html" title="Blog"><span>Blog</span></a>
-						<ul>
-							<li><a href="blog_single.html" title="Blog post">Blog post</a></li>
-						</ul>
-					</li> -->
-					<!-- <li><a href="#" title="Pages"><span>Pages</span></a>
-						<ul>
-							<li><a href="left_sidebar.html" title="Left sidebar page">Left sidebar page</a></li>
-							<li><a href="right_sidebar.html" title="Right sidebar page">Right sidebar page</a></li>
-							<li><a href="two_sidebars.html" title="Both sidebars page">Both sidebars page</a></li>
-							<li><a href="full_width.html" title="Full width page">Full width page</a></li>
-							<li><a href="login.html" title="Login page">Login page</a></li><li><a href="register.html" title="Register page">Register page</a></li>
-							<li><a href="error404.html" title="Error page">Error page</a></li>
-						</ul> -->
-					</li>
-					<li><a href="/fullstackproject/views/login.ejs" title="Login"><span>Login</span></a>
-					</li>
-					<li><a href="contact.html" title="Contact"><span>Contact</span></a></li>				</ul>
-			</nav>
-			
-			<nav class="user-nav" role="navigation">
-				<ul>
-					<li class="light"><a href="find_recipe.html" title="Search for recipes"><i class="icon icon-themeenergy_search"></i> <span>Search for recipes</span></a></li>
-					<li class="medium"><a href="my_profile.html" title="My account"><i class="icon icon-themeenergy_chef-hat"></i> <span>My account</span></a></li>
-					<!-- <li class="dark"><a href="submit_recipe.html" title="Submit a recipe"><i class="icon icon-themeenergy_fork-spoon"></i> <span>Submit a recipe</span></a></li> -->
-					<li class="dark"><a href="" title="My Family"><i class="icon icon-themeenergy_love"></i> <span>My Family</span></a></li>
-				</ul>
-			</nav>
-		</div>
-		<!--//wrap-->
+		<%- include ('partials/content/header.ejs') %> 
 	</header>
+	
 	<!--//header-->
 		
 	<!--main-->
@@ -87,42 +44,11 @@
 						“If you really want to make a friend, go to someone’s house and eat with him… <br>
 						The people who give you their food give you their heart.” <br>
 						- Cesar Chavez</p>
-						<a href="register.html" class="button white more medium">Join our community <i class="fa fa-chevron-right"></i></a>
-						<p>Already a member? Click <a href="login.html">here</a> to login.</p>
+						<a href="/register" class="button white more medium">Join our community <i class="fa fa-chevron-right"></i></a>
+						<p>Already a member? Click <a href="/login">here</a> to login.</p>
 					</article>
 					
-					<!--search recipes widget-->
-					<div class="one-fourth">
-						<div class="widget container">
-							<div class="textwrap">
-								<h3>Search for recipes</h3>
-								<p>All you need to do is enter an ingredient, a dish or a keyword. </p>
-								<p>You can also select a specific category from the dropdown.</p>
-								<p>There’s sure to be something tempting for you to try.</p> 
-								<p>Enjoy!</p>
-							</div>
-							<form action="find_recipe.html">
-								<div class="f-row">
-									<input type="text" placeholder="Enter your search term" />
-								</div>
-								<div class="f-row">
-									<select>
-										<option>or select a category</option>
-										<option>Apetizers</option>
-										<option>Cocktails</option>
-										<option>Deserts</option>
-										<option>Main courses</option>
-										<option>Snacks</option>
-										<option>Soups</option>
-									</select>
-								</div>
-								<div class="f-row bwrap">
-									<input type="submit" value="Start cooking!" />
-								</div>
-							</form>
-						</div>
-					</div>
-					<!--//search recipes widget-->
+					
 				</div>
 				<!--//row-->
 			</div>
@@ -585,57 +511,17 @@
 	<!--call to action-->
 	<section class="cta">
 		<div class="wrap clearfix">
-			<a href="http://themeforest.net/item/socialchef-social-recipe-html-template/8568727?ref=themeenergy" class="button big white right">Sign up now</a>
+			<a href="/register" class="button big white right">Sign up now</a>
 			<h2>Love sharing food and family? This is the community site for you!</h2>
 		</div>
 	</section>
 	<!--//call to action-->
 	
 	<!--footer-->
-	<!-- <footer class="foot" role="contentinfo">
-		<div class="wrap clearfix">
-			<div class="row">
-				<article class="one-half">
-					<h5>About SocialChef Community</h5>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci.</p>
-				</article>
-				<article class="one-fourth">
-					<h5>Need help?</h5>
-					<p>Contact us via phone or email</p>
-					<p><em>T:</em>  +1 555 555 555<br /><em>E:</em>  <a href="#">socialchef@email.com</a></p>
-				</article>
-				<article class="one-fourth">
-					<h5>Follow us</h5>
-					<ul class="social">
-						<li><a href="#" title="facebook"><i class="fa fa-fw fa-facebook"></i></a></li>
-						<li><a href="#" title="youtube"><i class="fa  fa-fw fa-youtube"></i></a></li>
-						<li><a href="#" title="rss"><i class="fa  fa-fw fa-rss"></i></a></li>
-						<li><a href="#" title="gplus"><i class="fa fa-fw fa-google-plus"></i></a></li>
-						<li><a href="#" title="linkedin"><i class="fa fa-fw fa-linkedin"></i></a></li>
-						<li><a href="#" title="twitter"><i class="fa fa-fw fa-twitter"></i></a></li>
-						<li><a href="#" title="pinterest"><i class="fa fa-fw fa-pinterest-p"></i></a></li>
-						<li><a href="#" title="vimeo"><i class="fa fa-fw fa-vimeo"></i></a></li>
-					</ul>
-				</article>
-				
-				<div class="bottom">
-					<p class="copy">Copyright 2016 SocialChef. All rights reserved</p>
-					
-					<nav class="foot-nav">
-						<ul>
-							<li><a href="index.html" title="Home">Home</a></li>
-							<li><a href="recipes.html" title="Recipes">Recipes</a></li>
-							<li><a href="blog.html" title="Blog">Blog</a></li>
-							<li><a href="contact.html" title="Contact">Contact</a></li>    
-							<li><a href="find_recipe.html" title="Search for recipes">Search for recipes</a></li>
-							<li><a href="login.html" title="Login">Login</a></li>	<li><a href="register.html" title="Register">Register</a></li>													
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</footer> -->
-	<!--//footer -->
+	<footer class="foot" role="contentinfo">
+		<%- include ('partials/content/footer.ejs') %> 
+	</footer>
+	<!--//footer-->
 
 	<script src="js/jquery-3.1.0.min.js"></script>
 	<script src="js/jquery.uniform.min.js"></script>

@@ -7,7 +7,7 @@
 	<meta name="description" content="SocialChef - Social Recipe HTML Template">
 	<meta name="author" content="themeenergy.com">
 	
-	<title>Heart Food</title>
+	<title>Heart Food - My account</title>
 	
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/icons.css" />
@@ -23,34 +23,9 @@
 	<![endif]-->
     </head>
     <body>
-	<header class="head" role="banner">
-		<!--wrap-->
-		<div class="wrap clearfix">
-			<a href="index.html" title="Heart Food" class="logo"><img src="images/ico/Heart_Food_logo.png" height="60px" alt="Heart Food logo"/></a>
-			
-			<nav class="main-nav" role="navigation" id="menu">
-				<ul>
-					<li class="current-menu-item"><a href="index.html" title="Home"><span>Home</span></a></li>
-					<li><a href="recipes.html" title="Recipes"><span>Recipes</span></a>
-						<ul>
-							<li><a href="recipes2.html" title="Recipes 2">Recipes 2</a></li><li><a href="recipe.html" title="Recipe">Recipe</a></li>
-						</ul>
-					</li>
-					<li><a href="/fullstackproject/views/login.ejs" title="Login"><span>Login</span></a>
-					</li>
-					<li><a href="contact.html" title="Contact"><span>Contact</span></a></li>				</ul>
-				</ul>
-			</nav>
-			
-			<nav class="user-nav" role="navigation">
-				<ul>
-					<li class="light"><a href="find_recipe.html" title="Search for recipes"><i class="icon icon-themeenergy_search"></i> <span>Search for recipes</span></a></li>
-					<li class="medium"><a href="my_profile.html" title="My account"><i class="icon icon-themeenergy_chef-hat"></i> <span>My account</span></a></li>
-					<li class="dark"><a href="#" title="My Family"><i class="icon icon-themeenergy_love"></i> <span>My Family</span></a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+		<header class="head" role="banner">
+			<%- include ('partials/content/header.ejs') %> 
+		</header>
 	<!--//header-->
 		
 	<!--main-->
@@ -60,7 +35,7 @@
 			<!--breadcrumbs-->
 			<nav class="breadcrumbs">
 				<ul>
-					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a href="" title="Home">Home</a></li>
 					<li>My account</li>
 				</ul>
 			</nav>
@@ -88,8 +63,8 @@
 							<ul>
 								<li class="active"><a href="#about" title="About me">About me</a></li>
 								<li><a href="#recipes" title="My recipes">My recipes</a></li>
-								<li><a href="#favorites" title="My favorites">My favorites</a></li>
-								<li><a href="#family" title="My family">My family</a></li>
+								<li><a href="#favorites" title="My favorites">Add recipe</a></li>
+								<li><a href="#posts" title="My family">My family</a></li>
 							</ul>
 						</nav>
 						
@@ -99,33 +74,18 @@
 								<dl class="basic two-third">
 									<dt>Name</dt>
 									<dd>Anabelle Q.</dd>
-									<dt>Favorite cusine</dt>
+									<!-- <dt>Favorite cusine</dt>
 									<dd>Thai, Mexican</dd>
 									<dt>Favorite appliances</dt>
 									<dd>Blender, sharp knife</dd>
 									<dt>Favorite spices</dt>
-									<dd>Chilli, Oregano, Basil</dd>
+									<dd>Chilli, Oregano, Basil</dd> -->
 									<dt>Recipes submitted</dt>
-									<dd>9</dd>
-									<dt>Posts submitted</dt>
-									<dd>9</dd>
+									<dd>Number of recipes dynamically</dd>
+									<dt>My Family</dt>
+									<dd>Family name here dynamically</dd>
 								</dl>
-<!-- 								
-								<div class="one-third">
-									<ul class="boxed gold">
-										<li class="light"><a href="#" title="Best recipe"><i class="icon icon-themeenergy_crown"></i> <span>Had a best recipe</span></a></li>
-										<li class="medium"><a href="#" title="Was featured"><i class="icon icon-themeenergy_top-rankings"></i> <span>Was featured</span></a></li>
-										<li class="dark"><a href="#" title="Added a first recipe"><i class="icon  icon-themeenergy_medal-first-place"></i> <span>Added a first recipe</span></a></li>
-										
-										<li class="medium"><a href="#" title="Added 10-20 recipes"><i class="icon icon-themeenergy_medal-8"></i> <span>Added 10-20 recipes</span></a></li>
-										<li class="dark"><a href="recipes.html" title="Events"><i class="icon icon-themeenergy_pencil"></i> <span>Wrote a blog post</span></a></li>
-										<li class="light"><a href="recipes.html" title="Fish"><i class="icon icon-themeenergy_chat-bubbles"></i> <span>Wrote a comment</span></a></li>
-										
-										<li class="dark"><a href="recipes.html" title="Fish"><i class="icon icon-themeenergy_cup2"></i> <span>Won a contest</span></a></li>
-										<li class="light"><a href="recipes.html" title="Healthy"><i class="icon icon-themeenergy_share3"></i> <span>Shared a recipe</span></a></li>
-										<li class="medium"><a href="#" title="Was featured"><i class="icon icon-themeenergy_top-rankings"></i> <span>Was featured</span></a></li>
-									</ul>
-								</div> -->
+
 							</div>
 						</div>
 						<!--//about-->
@@ -194,11 +154,11 @@
 						<!--//my recipes-->
 						
 						
-						<!--my favorites-->
+						<!--my favorites NOW ADD RECIPE-->
 						<div class="tab-content" id="favorites">
-							<div class="entries row">
+							<!-- <div class="entries row"> -->
 								<!--item-->
-								<div class="entry one-third">
+								<!-- <div class="entry one-third">
 									<figure>
 										<img src="images/img.jpg" alt="" />
 										<figcaption><a href="recipe.html"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
@@ -213,11 +173,11 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								<!--item-->
 								
 								<!--item-->
-								<div class="entry one-third">
+								<!-- <div class="entry one-third">
 									<figure>
 										<img src="images/img.jpg" alt="" />
 										<figcaption><a href="recipe.html"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
@@ -232,11 +192,11 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								<!--item-->
 								
 								<!--item-->
-								<div class="entry one-third">
+								<!-- <div class="entry one-third">
 									<figure>
 										<img src="images/img.jpg" alt="" />
 										<figcaption><a href="recipe.html"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
@@ -251,80 +211,119 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								<!--item-->
+							<!-- </div> -->
+							<!--content-->
+				<section class="content full-width">
+					<div class="submit_recipe container">
+						<form>
+							<section>
+								<h2>Title</h2>
+								<!-- <p>All fields are required.</p> -->
+								<div class="f-row">
+									<div class="full"><input type="text" placeholder="Recipe title" /></div>
+								</div>
+								<!-- <div class="f-row">
+									<div class="third"><input type="text" placeholder="Preparation time" /></div>
+									<div class="third"><input type="text" placeholder="Cooking time" /></div>
+									<div class="third"><input type="text" placeholder="Difficulty" /></div>
+								</div>
+								<div class="f-row">
+									<div class="third"><input type="text" placeholder="Serves how many people?" /></div>
+									<div class="third"><select><option selected="selected">Select a category</option></select></div>
+								</div> -->
+							</section>
+							
+							<section>
+								<h2>Ingredients</h2>
+								<div class="f-row">
+									<div class="full"><textarea placeholder="Add Ingredients"></textarea></div>
+								</div>
+
+							<section>
+								<h2>Directions</h2>
+								<div class="f-row">
+									<div class="full"><textarea placeholder=" Write directions Here"></textarea></div>
+								</div>
+							</section>	
+							
+							<!-- <section>
+								<h2>Ingredients</h2>
+								<div class="f-row ingredient">
+									<div class="large"><input type="text" placeholder="Ingredient" /></div>
+									<div class="small"><input type="text" placeholder="Quantity" /></div>
+									<div class="third"><select><option selected="selected">Select a category</option></select></div>
+									<button class="remove">-</button>
+								</div>
+								<div class="f-row full">
+									<button class="add">Add an ingredient</button>
+								</div>
+							</section>	
+							
+							<section>
+								<h2>Instructions <span>(enter instructions, each step at a time)</span></h2>
+								<div class="f-row instruction">
+									<div class="full"><input type="text" placeholder="Instructions" /></div>
+									<button class="remove">-</button>
+								</div>
+								<div class="f-row full">
+									<button class="add">Add a step</button>
+								</div>
+							</section> -->
+							
+							<section>
+								<h2>Photo</h2>
+								<div class="f-row full">
+									<input type="file" />
+								</div>
+							</section>	
+							
+							<!-- <section>
+								<h2>Status <span>(would you like to further edit this recipe or are you ready to publish it?)</span></h2>
+								<div class="f-row full">
+									<input type="radio" id="r1" name="radio"/>
+									<label for="r1">I am still working on it</label>
+								</div>
+								<div class="f-row full">
+									<input type="radio" id="r2" name="radio"/>
+									<label for="r2">I am ready to publish this recipe</label>
+								</div>
+							</section> -->
+							
+							<div class="f-row full">
+								<input type="submit" class="button" id="submitRecipe" value="Publish this recipe" />
 							</div>
+						</form>
+					</div>
+				</section>
+				<!--//content-->
 						</div>
 						<!--//my favorites-->
 						
-						<!--my posts-->
+						<!--my posts NOW MY FAMILY-->
 						<div class="tab-content" id="posts">
-							<!--entries-->
-							<div class="entries row">
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="images/img.jpg" alt="" />
-										<figcaption><a href="blog_single.html"><i class="icon icon-themeenergy_eye2"></i> <span>View post</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="blog_single.html">Barbeque party</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="date"><i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="blog_single.html#comments">27</a></div>
-											</div>
-										</div>
-										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit amet . . . </p>
-										</div>
-									</div>
-								</div>
-								<!--item-->
+							
+								<div class="row">
+									<dl class="basic two-third">
+										<dt>Family Name</dt>
+										<dd>Family Name dynamically generated here</dd>
+										<dt>Family member:</dt>
+										<dd>family members dynamically generated</dd>
+										<!-- <dt>Family member:</dt>
+										<dd>***</dd>
+										<dt>Family member:</dt>
+										<dd>***</dd>
+										<dt>Family member:</dt>
+										<dd>***</dd>
+										<dt>Family member</dt>
+										<dd>***</dd> -->
+									</dl>
+									
+									
 								
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="images/img.jpg" alt="" />
-										<figcaption><a href="blog_single.html"><i class="icon icon-themeenergy_eye2"></i> <span>View post</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="blog_single.html">How to make sushi</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="date"><i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="blog_single.html#comments">27</a></div>
-											</div>
-										</div>
-										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit amet . . . </p>
-										</div>
-									</div>
-								</div>
-								<!--item-->
-								
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="images/img.jpg" alt="" />
-										<figcaption><a href="blog_single.html"><i class="icon icon-themeenergy_eye2"></i> <span>View post</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="blog_single.html">Make your own bread</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="date"><i class="fa fa-calendar"></i><a href="#">22 Dec 2014</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="blog_single.html#comments">27</a></div>
-											</div>
-										</div>
-										<div class="excerpt">
-											<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit amet . . . </p>
-										</div>
-									</div>
-								</div>
-								<!--item-->
 							</div>
-							<!--//entries-->
+							
 						</div>
 						<!--//my posts-->
 					</div>
@@ -340,34 +339,9 @@
 	
 	<!--footer-->
 	<footer class="foot" role="contentinfo">
-		<div class="wrap clearfix">
-			<div class="row">
-				<article class="two-third">
-					<h5>About Heart Food</h5>
-					<p>Heart Food is a social community which allows your family to connect and share your favorite recipes.</p>
-				</article>
-				<article class="one-third">
-					<h5>Need help?</h5>
-					<p>Contact us</p>
-				</article>				
-				<div class="bottom">
-					<p class="copy">Copyright 2021 Heart Food. All rights reserved</p>
-					
-					<nav class="foot-nav">
-						<ul>
-							<li><a href="index.html" title="Home">Home</a></li>
-							<li><a href="recipes.html" title="Recipes">Recipes</a></li>
-							<li><a href="contact.html" title="Contact">Contact</a></li>    
-							<li><a href="find_recipe.html" title="Search for recipes">Search for recipes</a></li>
-							<li><a href="login.html" title="Login">Login</a></li>	<li><a href="register.html" title="Register">Register</a></li>													
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</div>
+		<%- include ('partials/content/footer.ejs') %> 
 	</footer>
 	<!--//footer-->
-	
 	<script src="js/jquery-3.1.0.min.js"></script>
 	<script src="js/jquery.uniform.min.js"></script>
 	<script src="js/jquery.slicknav.min.js"></script>
