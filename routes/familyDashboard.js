@@ -7,7 +7,8 @@ router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
 // renders the home front end page
-router.get("/familyDashboard",auth, (req, res) => {
+router.get("/familyDashboard",auth, async (req, res) => {
+  try{
   let currentUser = req.user;
   
   if(currentUser.photo){
@@ -16,11 +17,18 @@ router.get("/familyDashboard",auth, (req, res) => {
   } else {
     var photoPath = 'images/avatar.jpg';
   }
-  
+  //
+  let currentUfam = await db.membership.findAll({where:{userID:currentUser.id}}); 
+  console.log(currentUfam);
   res.render("familyDashboard",{
     profliePicUrl:photoPath,
     userName:currentUser.name
+
   });
+}
+catch(e){
+  res.send(e);
+}
 });
 
 // GET / Show all family recipes

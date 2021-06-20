@@ -41,6 +41,8 @@ app.use(require('./routes/login'));
 app.use(require('./routes/addFamily'));
 app.use(require('./routes/joinFamily'));
 app.use(require('./routes/updateDB'));
+app.use(require('./routes/contact'));
+app.use(require('./routes/messageDisp'));
 
 
 

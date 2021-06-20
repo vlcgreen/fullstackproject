@@ -55,7 +55,7 @@
 					<div class="three-fourth">
 						<nav class="tabs">
 							<ul>
-								<li class="active"><a href="#about" title="About me">About me</a></li>
+								<li class="active"><a href="#about" title="My Account">My Account</a></li>
 								<li><a href="#recipes" title="My recipes">My recipes</a></li>
 								<li><a href="#favorites" title="My favorites">Add recipe</a></li>
 								<li><a href="#posts" title="My family">Manage family</a></li>
@@ -68,10 +68,13 @@
 								<dl class="basic two-third">
 									<dt>Name</dt>
 									<dd><%= userName %></dd>
-									<dt>My Family</dt>
-									<dd>Family name here dynamically</dd>
+									<dt>My Families</dt>
+									
+									<dd><% familyNames.forEach(name => { %>
+									 <%= name %> |
+									<% }) %>  </dd>
 									<dt>Recipes submitted</dt>
-									<dd>Number of recipes dynamically</dd>
+									<dd> You have submitted <%= userRecipes %> recipes </dd>
 									
 								</dl>
 
@@ -234,33 +237,33 @@
 						</div>
 						<!--//my favorites-->
 						
-						<!--my posts NOW MY FAMILY-->
+						<!--my posts NOW  FAMILY-->
 						<div class="tab-content" id="posts">
 								<section>
 								<div class="row">
-								<a href="/register" class="button white more medium ">Join our community </a>
-								<a href="/register" class="button white more medium ">Join our community </a>
+								<a href="/joinFamily" class="button white more medium ">Join A Family </a>
+								<a href="/addFamily" class="button white more medium ">Add a Family </a>
 								</div>
 								</section>
 
-								<section>
+								<!-- <section>
 								<div class="row">
 									<dl class="basic two-third">
 										<dt>Family Name</dt>
 										<dd>Family Name dynamically generated here</dd>
 										<dt>Family member:</dt>
 										<dd>family members dynamically generated</dd>
-										<!-- <dt>Family member:</dt>
+										<dt>Family member:</dt>
 										<dd>***</dd>
 										<dt>Family member:</dt>
 										<dd>***</dd>
 										<dt>Family member:</dt>
 										<dd>***</dd>
 										<dt>Family member</dt>
-										<dd>***</dd> -->
+										<dd>***</dd>
 									</dl>	
 								</div>
-								</section>
+								</section> -->
 							
 						</div>
 						<!--//my posts-->

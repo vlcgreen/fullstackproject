@@ -7,21 +7,58 @@ router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
 // renders the home front end page
-router.get("/home",auth,(req, res) => {
+router.get("/home",auth, async (req, res) => {
+  try{
+  //get user and users profile photo
   let currentUser = req.user;
-  //console.log(currentUser.photo);
+  //console.log(currentUser.id);
   if(currentUser.photo){
   var photoPath = currentUser.photo.substring(7);
   } else {
     var photoPath = 'images/avatar.jpg';
   }
 
+  //get users family (or families)
+  //use userID to look up familie IDs in membership table
+  //Use familyIDs to get family names from family table
+
+  let familyData = await db.membership.findAll({where:{userID:currentUser.id}});
+  let familyIDs = [];
+  familyData.forEach(record =>{
+    familyIDs.push(record.familyID)
+  })
+  //console.log(familyIDs);
+
+  //display family names
+  let familyNameData = await db.family.findAll({where:{id:familyIDs}});
+  let familyNames = [];
+  familyNameData.forEach(record =>{
+    familyNames.push(record.familyName);
+  })
+  let familyPhotos = [];
+  familyNameData.forEach(record =>{
+    familyPhotos.push(record.familyPhoto);
+  })
+
+  console.log(familyNames);
+  console.log(familyPhotos);
+
+  //get number of recipes user has submitted
+  let userRecNum = await db.user_recipes.count({where:{id:currentUser.id}});
+  console.log(userRecNum);
+
   
   res.render("my_profile",{
       profliePicUrl:photoPath,
-      userName:currentUser.name
+      userName:currentUser.name,
+      familyNames:familyNames,
+      userRecipes:userRecNum
   }
   );
+}
+catch(e){
+  console.log(e);
+}
 });
 
 // GET all user recipes //
