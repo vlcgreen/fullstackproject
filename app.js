@@ -24,7 +24,7 @@ app.use(helmet());
 //views
 app.set("view engine", "ejs");
 
-// passport 
+// passport
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -33,7 +33,7 @@ app.use(require('./routes/index'));
 app.use(require("./routes/home"));
 
 app.use(require("./routes/familyDashboard"));
-// app.use(require('./routes/recipes'));
+app.use(require("./routes/index"));
 // app.use(require('./routes/registration'));
 
 app.use(require('./routes/register'));
@@ -44,11 +44,6 @@ app.use(require('./routes/updateDB'));
 app.use(require('./routes/contact'));
 app.use(require('./routes/messageDisp'));
 
-
-
-
-
-
-app.listen(PORT,() => {
-    console.log(`listening on port ${PORT}`);
-})
+app.listen(PORT, () => {
+  console.log(`listening on port ${PORT}`);
+});
