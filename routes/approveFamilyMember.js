@@ -7,10 +7,10 @@ const db = require('../models');
 router.get('/unapporvedFamMem', async (req,res) => {
     //
     //gets all family memebers for a certain family with isApproved === false
-    let unapproved = await db.membership.findAll({where:{
-        isApproved:false,
-        [Op.and]:{familyID:}
-    }})
+    // let unapproved = await db.membership.findAll({where:{
+    //     isApproved:false,
+    //     [Op.and]:{familyID:}
+    //}})
     //returns that info to browser ???in JSON format???
     res.json({data:unapproved});
 })

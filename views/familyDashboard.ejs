@@ -23,36 +23,9 @@
 	<![endif]-->
     </head>
     <body>
-	<header class="head" role="banner">
-		<!--wrap-->
-		<div class="wrap clearfix">
-			<a href="index.html" title="Heart Food" class="logo"><img src="images/ico/Heart_Food_logo.png" height="60px" alt="Heart Food logo"/></a>
-			
-			<nav class="main-nav" role="navigation" id="menu">
-				<ul>
-					<li class="current-menu-item"><a href="index.html" title="Home"><span>Home</span></a></li>
-					<li><a href="recipes.html" title="Recipes"><span>Recipes</span></a>
-						<ul>
-							<li><a href="recipes2.html" title="Recipes 2">Recipes 2</a></li><li><a href="recipe.html" title="Recipe">Recipe</a></li>
-						</ul>
-					</li>
-					<li><a href="/fullstackproject/views/login.ejs" title="Login"><span>Login</span></a>
-					</li>
-					<li><a href="contact.html" title="Contact"><span>Contact</span></a></li>				</ul>
-				</ul>
-			</nav>
-			
-			<nav class="user-nav" role="navigation">
-				<ul>
-					<li class="light"><a href="find_recipe.html" title="Search for recipes"><i class="icon icon-themeenergy_search"></i> <span>Search for recipes</span></a></li>
-					<li class="medium"><a href="my_profile.html" title="My account"><i class="icon icon-themeenergy_chef-hat"></i> <span>My account</span></a></li>
-					<li class="dark"><a href="#" title="My Family"><i class="icon icon-themeenergy_love"></i> <span>My Family</span></a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<!--//header-->
-		
+		<header class="head" role="banner">
+			<%- include ('partials/content/header.ejs') %> 
+		</header>
 	<!--main-->
 	<main class="main" role="main">
 		<!--wrap-->
@@ -60,8 +33,8 @@
 			<!--breadcrumbs-->
 			<nav class="breadcrumbs">
 				<ul>
-					<li><a href="index.html" title="Home">Home</a></li>
-					<li>My account</li>
+					<li><a href="/" title="Home">Home</a></li>
+					<li>My family</li>
 				</ul>
 			</nav>
 			<!--//breadcrumbs-->
@@ -74,10 +47,10 @@
 					<!--profile left part-->
 					<div class="my_account one-fourth">
 						<figure>
-							<img src="images/avatar.jpg" alt="" />
+							<img src="<%=  profliePicUrl %>" alt="" />
 						</figure>
 						<div class="container">
-							<h2>Anabelle Q.</h2> 
+							<h2 class="center"><%= userName %> </h2>  
 						</div>
 					</div>
 					<!--//profile left part-->
@@ -85,51 +58,31 @@
 					<div class="three-fourth">
 						<nav class="tabs">
 							<ul>
-								<li class="active"><a href="#about" title="About me">About me</a></li>
-								<li><a href="#recipes" title="My recipes">My recipes</a></li>
+								<li class="active"><a href="#posts" title="About me">Family Members</a></li>
+								<li><a href="#recipes" title="Our recipes">Our recipes</a></li>
 								<li><a href="#favorites" title="My favorites">My favorites</a></li>
-								<li><a href="#family" title="My family">My family</a></li>
+								<li><a href="#family" title="My families">My families</a></li>
 							</ul>
 						</nav>
 						
 						<!--about-->
-                        <div class="tab-content" id="about">
+                        <div class="tab-content" id="posts">
 							<div class="row">
 								<dl class="basic two-third">
 									<dt>Family Name</dt>
-									<dd>Chamberlin</dd>
+									<dd>Family Name dynamically generated here</dd>
 									<dt>Family member:</dt>
-									<dd>***</dd>
-									<dt>Family member:</dt>
-									<dd>***</dd>
-									<dt>Family member:</dt>
-									<dd>***</dd>
-									<dt>Family member:</dt>
-									<dd>***</dd>
-									<dt>Family member</dt>
-									<dd>***</dd>
+									<dd>family members dynamically generated</dd>
+								
 								</dl>
 								
-								<!-- <div class="one-third">
-									<ul class="boxed gold">
-										<li class="light"><a href="#" title="Best recipe"><i class="icon icon-themeenergy_crown"></i> <span>Had a best recipe</span></a></li>
-										<li class="medium"><a href="#" title="Was featured"><i class="icon icon-themeenergy_top-rankings"></i> <span>Was featured</span></a></li>
-										<li class="dark"><a href="#" title="Added a first recipe"><i class="icon  icon-themeenergy_medal-first-place"></i> <span>Added a first recipe</span></a></li>
-										
-										<li class="medium"><a href="#" title="Added 10-20 recipes"><i class="icon icon-themeenergy_medal-8"></i> <span>Added 10-20 recipes</span></a></li>
-										<li class="dark"><a href="recipes.html" title="Events"><i class="icon icon-themeenergy_pencil"></i> <span>Wrote a blog post</span></a></li>
-										<li class="light"><a href="recipes.html" title="Fish"><i class="icon icon-themeenergy_chat-bubbles"></i> <span>Wrote a comment</span></a></li>
-										
-										<li class="dark"><a href="recipes.html" title="Fish"><i class="icon icon-themeenergy_cup2"></i> <span>Won a contest</span></a></li>
-										<li class="light"><a href="recipes.html" title="Healthy"><i class="icon icon-themeenergy_share3"></i> <span>Shared a recipe</span></a></li>
-										<li class="medium"><a href="#" title="Was featured"><i class="icon icon-themeenergy_top-rankings"></i> <span>Was featured</span></a></li>
-									</ul>
-								</div> -->
-							</div>
+								
+							
+						</div>
 						</div>
 						<!--//about-->
 					
-						<!--my recipes-->
+						<!--my recipes NOW OUR RECIPES-->
 						<div class="tab-content" id="recipes">
 							<div class="entries row">
 								<!--item-->
@@ -339,34 +292,10 @@
 	
 	<!--footer-->
 	<footer class="foot" role="contentinfo">
-		<div class="wrap clearfix">
-			<div class="row">
-				<article class="two-third">
-					<h5>About Heart Food</h5>
-					<p>Heart Food is a social community which allows your family to connect and share your favorite recipes.</p>
-				</article>
-				<article class="one-third">
-					<h5>Need help?</h5>
-					<p>Contact us</p>
-				</article>				
-				<div class="bottom">
-					<p class="copy">Copyright 2021 Heart Food. All rights reserved</p>
-					
-					<nav class="foot-nav">
-						<ul>
-							<li><a href="index.html" title="Home">Home</a></li>
-							<li><a href="recipes.html" title="Recipes">Recipes</a></li>
-							<li><a href="contact.html" title="Contact">Contact</a></li>    
-							<li><a href="find_recipe.html" title="Search for recipes">Search for recipes</a></li>
-							<li><a href="login.html" title="Login">Login</a></li>	<li><a href="register.html" title="Register">Register</a></li>													
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</div>
+		<%- include ('partials/content/footer.ejs') %> 
 	</footer>
 	<!--//footer-->
-	
+
 	<script src="js/jquery-3.1.0.min.js"></script>
 	<script src="js/jquery.uniform.min.js"></script>
 	<script src="js/jquery.slicknav.min.js"></script>

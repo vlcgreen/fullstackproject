@@ -31,7 +31,7 @@ router.get('/register',(req, res) => {
 
 router.post('/register',upload.single('image'),async (req, res) => {
     try{
-        let imagePath = null
+        //let imagePath = null
         if(req.file){
             //res.json(req.file);
         imagePath = req.file.path;
