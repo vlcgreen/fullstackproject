@@ -7,22 +7,35 @@ router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
 // renders the home front end page
-router.get("/home", auth, (req, res) => {
+router.get("/my_profile", auth, async (req, res) => {
   let currentUser = req.user;
 
-    //console.log(currentUser.photo);
-    if(currentUser.photo){
+  //console.log(currentUser.photo);
+  if (currentUser.photo) {
     var photoPath = currentUser.photo.substring(7);
-    } else {
-      var photoPath = 'images/avatar.jpg';
-    }
-  
-    res.render("my_profile",{
-        profliePicUrl:photoPath,
-        userName:currentUser.name
-    }
-    );
+  } else {
+    var photoPath = "images/avatar.jpg";
+  }
 
+  console.log("userid", req.user.id);
+
+  try {
+    let recipeData = await db.user_recipes.findAll({
+      where: { userID: req.user.id },
+    });
+
+    console.log("user_Recipes", recipeData[1].title);
+
+    res.render("my_profile", {
+      profliePicUrl: photoPath,
+      userName: currentUser.name,
+      email: currentUser.email,
+      userRecipes: recipeData
+
+    });
+  } catch (error) {
+    console.error("ERROR", error);
+  }
 });
 
 // GET all user recipes //
