@@ -47,7 +47,7 @@
         <!--breadcrumbs-->
         <nav class="breadcrumbs">
           <ul>
-            <li><a href="index.html" title="Home">Home</a></li>
+            <li><a href="/" title="Home">Home</a></li>
             <li>Update recipe</li>
           </ul>
         </nav>
@@ -59,27 +59,37 @@
             <h1>Update Recipe</h1>
           </header>
 
+          <% if (updated) { %>
+           <h2 style="
+           background-color: #0bff00;
+           border-radius: 8px;
+           margin-bottom: 35px;
+           padding: 0 10px;
+           color: #000;
+       ">Recipe was successfully updated!</h2>
+          <% } %>
+
           <!--UPDATE RECIPE RECIPE-->
 						<div class="tab-content" id="favorites">
 							
                             <section class="content full-width">
                                 <div class="submit_recipe container">
-                                    <form method="post" action="">
+                                    <form method="post" action="" enctype="multipart/form-data">
                                         <section>
                                             <h2>Title</h2>
                                             <!-- <p>All fields are required.</p> -->
                                             <div class="f-row">
                                                 <div class="full"><input type="text" placeholder="Recipe title" name="title" value="<%=recipeData.title  %>"/></div>
                                             </div>
-                                            <!-- <div class="f-row">
-                                                <div class="third"><input type="text" placeholder="Preparation time" /></div>
-                                                <div class="third"><input type="text" placeholder="Cooking time" /></div>
-                                                <div class="third"><input type="text" placeholder="Difficulty" /></div>
-                                            </div>
-                                            <div class="f-row">
-                                                <div class="third"><input type="text" placeholder="Serves how many people?" /></div>
-                                                <div class="third"><select><option selected="selected">Select a category</option></select></div>
-                                            </div> -->
+
+                                        </section>
+                                        <section>
+                                          <h2>Category</h2>
+                                          <!-- <p>All fields are required.</p> -->
+                                          <div class="f-row">
+                                            <div class="full"><input type="text" placeholder="Category" name="tag" value="<%=recipeData.tag %>"></div>
+                                          </div>
+                          
                                         </section>
                                         
                                         <section>
@@ -131,8 +141,11 @@
                                         
                                         <div class="f-row full">
                                             <input type="submit" class="button" id="submitRecipe" value="Save Changes" />
-                                            <input type="submit" class="button" id="submitRecipe" value="Delete this recipe" />
+                                          
                                         </div>
+                                    </form>
+                                    <form method="post" action="/user_recipes/delete?id=<%=recipeData.id%>">
+                                      <input type="submit" class="button" id="deleteRecipe" value="Delete this recipe" />
                                     </form>
                                 </div>
                             </section>
