@@ -6,7 +6,7 @@
 	<meta name="keywords" content="SocialChef - Social Recipe HTML Template" />
 	<meta name="description" content="SocialChef - Social Recipe HTML Template">
 	<meta name="author" content="themeenergy.com">
-	
+
 	<title>Heart Food - My account</title>
 	
 	<link rel="stylesheet" href="css/style.css" />
@@ -55,23 +55,28 @@
 					<div class="three-fourth">
 						<nav class="tabs">
 							<ul>
-								<li class="active"><a href="#about" title="About me">About me</a></li>
+								<li class="active"><a href="#about" title="My Account">My Account</a></li>
 								<li><a href="#recipes" title="My recipes">My recipes</a></li>
 								<li><a href="#favorites" title="My favorites">Add recipe</a></li>
 								<li><a href="#posts" title="My family">Manage family</a></li>
 							</ul>
 						</nav>
 						
-						<!--about-->
+						<!--Account-->
 						<div class="tab-content" id="about">
 							<div class="row">
 								<dl class="basic two-third">
 									<dt>Name</dt>
 									<dd><%= userName %></dd>
-									<dt>My Family</dt>
-									<dd>Family name here dynamically</dd>
+									<dt>My Families</dt>
+									
+									<dd><% familyNames.forEach(name => { %>
+									<%= name %> 
+									<% }) %>  </dd>
+									<dt>Email</dt>
+									<dd><%= email  %> </dd>
 									<dt>Recipes submitted</dt>
-									<dd>Number of recipes dynamically</dd>
+									<dd> You have submitted <%= userRecNum %> recipes </dd> 
 									
 								</dl>
 
@@ -82,68 +87,33 @@
 						<!--my recipes-->
 						<div class="tab-content" id="recipes">
 							<div class="entries row">
+<% for( let index = 0; index < userRecipes.length; index++ ) { %>
 								<!--item-->
 								<div class="entry one-third">
 									<figure>
-										<img src="images/img.jpg" alt="" />
-										<figcaption><a href="recipe.html"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
+										<img src="<%= userRecipes[index].image %>" alt="" />
+										<figcaption><a href="/recipes/<%=  userRecipes[index].id %>"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
 									</figure>
 									<div class="container">
-										<h2><a href="recipe.html">Thai fried rice with fruit and vegetables</a></h2> 
+										<h2><a href="/recipes/<%=  userRecipes[index].id %>"><%=  userRecipes[index].title %></a></h2> 
 										<div class="actions">
 											<div>
-												<div class="difficulty"><i class="ico i-medium"></i><a href="#">medium</a></div>
-												<div class="likes"><i class="fa fa-heart"></i><a href="#">10</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="recipe.html#comments">27</a></div>
+												<!-- <div class="difficulty"><i class="ico i-medium"></i><a href="#">medium</a></div> -->
+												<div class="likes"><i class="fa fa-heart"></i><a href="#"><b>Category:</b> <%= userRecipes[index].tag %> </a></div>
+												
 											</div>
 										</div>
 									</div>
 								</div>
 								<!--item-->
-								
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="images/img.jpg" alt="" />
-										<figcaption><a href="recipe.html"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="recipe.html">Spicy Morroccan prawns with cherry tomatoes</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="difficulty"><i class="ico i-hard"></i><a href="#">hard</a></div>
-												<div class="likes"><i class="fa fa-heart"></i><a href="#">10</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="recipe.html#comments">27</a></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--item-->
-								
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="images/img.jpg" alt="" />
-										<figcaption><a href="recipe.html"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="recipe.html">Super easy blueberry cheesecake</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="difficulty"><i class="ico i-easy"></i><a href="#">easy</a></div>
-												<div class="likes"><i class="fa fa-heart"></i><a href="#">10</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="recipe.html#comments">27</a></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--item-->
+<% } %>
+
 							</div>
 						</div>
 						<!--//my recipes-->
 						
 						
-						<!--my favorites NOW ADD RECIPE-->
+						<!--ADD RECIPE-->
 						<div class="tab-content" id="favorites">
 							
 				<section class="content full-width">
@@ -170,18 +140,18 @@
 								<h2>Ingredients</h2>
 								<div class="f-row">
 									<div class="full">
-										<textarea placeholder="Add Ingredients" name=""></textarea></div>
+										<textarea placeholder="Add Ingredients" name="ingredients"></textarea></div>
 								</div>
 
 							<section>
 								<h2>Directions</h2>
 								<div class="f-row">
 									<div class="full">
-										<textarea placeholder=" Write directions Here" name=""></textarea></div>
+										<textarea placeholder=" Write directions Here" name="directions"></textarea></div>
 								</div>
 							</section>	
 							
-							<section>
+							<!-- <section>
 								<h2>Ingredients</h2>
 								<div class="f-row ingredient">
 									<div class="large"><input type="text" placeholder="Ingredient" /></div>
@@ -203,7 +173,7 @@
 								<div class="f-row full">
 									<button class="add">Add a step</button>
 								</div>
-							</section>
+							</section> -->
 							
 							<section>
 								<h2>Photo</h2>
@@ -234,33 +204,33 @@
 						</div>
 						<!--//my favorites-->
 						
-						<!--my posts NOW MY FAMILY-->
+						<!--my posts NOW MANAGE FAMILY-->
 						<div class="tab-content" id="posts">
 								<section>
-								<div class="row">
-								<a href="/register" class="button white more medium ">Join our community </a>
-								<a href="/register" class="button white more medium ">Join our community </a>
+								<div class="row three-fourth">
+								<a href="/joinFamily" class="button white more medium ">Join A Family </a> <br><br>
+								<a href="/addFamily" class="button white more medium ">Add a Family </a>
 								</div>
 								</section>
 
-								<section>
+								<!-- <section>
 								<div class="row">
 									<dl class="basic two-third">
 										<dt>Family Name</dt>
 										<dd>Family Name dynamically generated here</dd>
 										<dt>Family member:</dt>
 										<dd>family members dynamically generated</dd>
-										<!-- <dt>Family member:</dt>
+										<dt>Family member:</dt>
 										<dd>***</dd>
 										<dt>Family member:</dt>
 										<dd>***</dd>
 										<dt>Family member:</dt>
 										<dd>***</dd>
 										<dt>Family member</dt>
-										<dd>***</dd> -->
+										<dd>***</dd>
 									</dl>	
 								</div>
-								</section>
+								</section> -->
 							
 						</div>
 						<!--//my posts-->

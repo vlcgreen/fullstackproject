@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="SocialChef - Social Recipe HTML Template" />
+	<meta name="description" content="SocialChef - Social Recipe HTML Template">
+    <!-- <meta http-equiv="Content-Security-Policy"  content=" style-src-elem 'self' http://fonts.googleapis.com/css; script-src  'self' https://submit-form.com/mqzXnB0H; font-src  * ; child-src 'none'; object-src 'none'; default-src  *  'unsafe-inline' https://submit-form.com/mqzXnB0H"> -->
+
+	<meta name="author" content="themeenergy.com">
+	
+	<title>contact</title>
+	
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/icons.css" />
+	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
+	<!-- <script src="https://use.fontawesome.com/e808bf9397.js"></script> -->
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<!--preloader-->
+	<div class="preloader">
+		<div class="spinner"></div>
+	</div>
+	<!--//preloader-->
+	
+	<!--header-->
+	<header class="head" role="banner">
+        <%- include ('partials/content/header.ejs') %> 
+    </header>
+	<!--//header-->
+		
+	<!--main-->
+	<main class="main" role="main">
+		<!--wrap-->
+		<div class="wrap clearfix">
+			<!--row-->
+			<div class="row">
+				<!--content-->
+				<section class="content center full-width">
+					<div class="modal container">
+						<form action="" method="POST" name="contactform" id="contactform">
+							<h3>Contact us</h3>
+							<div id="message" class="alert alert-danger"></div>
+							<div class="f-row">
+								<input type="text" placeholder="Your name" id="name" name="name" />
+							</div>
+							<div class="f-row">
+								<input type="email" placeholder="Your email" id="email" name="email" />
+							</div>
+						
+							<div class="f-row">
+								<textarea placeholder="Your message" id="comments" name="comments"></textarea>
+							</div>
+							<div class="f-row bwrap">
+                                <input type="submit" value="Send message" />
+                                <!-- <button class="" type="submit">Send</button> -->
+
+							</div>
+						</form>
+					</div>
+				</section>
+				<!--//content-->
+			</div>
+			<!--//row-->
+		</div>
+		<!--//wrap-->
+	</main>
+	<!--//main-->
+	
+	
+	<!--footer-->
+	<footer class="foot" role="contentinfo">
+		<%- include ('partials/content/footer.ejs') %> 
+	</footer>
+	<!--//footer-->
+	
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script src="js/jquery.uniform.min.js"></script>
+	<script src="js/jquery.slicknav.min.js"></script>
+	<script src="js/scripts.js"></script>
+</body>
+</html>

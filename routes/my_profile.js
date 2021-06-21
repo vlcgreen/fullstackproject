@@ -7,22 +7,61 @@ router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
 // renders the home front end page
-router.get("/home", auth, (req, res) => {
-  let currentUser = req.user;
+router.get("/my_profile", auth, async (req, res) => {
+  try {
+      let currentUser = req.user;
+      //console.log(currentUser.id);
+      if(currentUser.photo){
+      var photoPath = currentUser.photo.substring(7);
+      } else {
+        var photoPath = 'images/avatar.jpg';
+      }
 
-    //console.log(currentUser.photo);
-    if(currentUser.photo){
-    var photoPath = currentUser.photo.substring(7);
-    } else {
-      var photoPath = 'images/avatar.jpg';
-    }
-  
-    res.render("my_profile",{
-        profliePicUrl:photoPath,
-        userName:currentUser.name
-    }
-    );
+    let recipeData = await db.user_recipes.findAll({
+      where: { userID: req.user.id }
+      })
+      //get users family (or families)
+      //use userID to look up familie IDs in membership table
+      //Use familyIDs to get family names from family table
 
+      let familyData = await db.membership.findAll({where:{userID:currentUser.id}});
+      let familyIDs = [];
+      familyData.forEach(record =>{
+        familyIDs.push(record.familyID)
+      })
+      //console.log(familyIDs);
+
+      //display family names
+      let familyNameData = await db.family.findAll({where:{id:familyIDs}});
+      let familyNames = [];
+      familyNameData.forEach(record =>{
+        familyNames.push(record.familyName);
+      })
+      let familyPhotos = [];
+      familyNameData.forEach(record =>{
+        familyPhotos.push(record.familyPhoto);
+      })
+
+      console.log(familyNames);
+      console.log(familyPhotos);
+
+      //get number of recipes user has submitted
+      let userRecNum = await db.user_recipes.count({where:{id:currentUser.id}});
+      console.log(userRecNum);
+
+      
+      res.render("my_profile",{
+          profliePicUrl:photoPath,
+          userName:currentUser.name,
+          familyNames:familyNames,
+          userRecNum:userRecNum, 
+          email: currentUser.email,
+          userRecipes: recipeData
+      });
+}
+catch(e){
+  console.log(e);
+}
 });
 
 // GET all user recipes //
