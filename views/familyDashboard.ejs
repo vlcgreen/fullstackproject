@@ -58,9 +58,9 @@
 					<div class="three-fourth">
 						<nav class="tabs">
 							<ul>
-								<li class="active"><a href="#posts" title="About me">Family Members</a></li>
+								<li class="active"><a href="#posts" title="About me">Family</a></li>
 								<li><a href="#recipes" title="Our recipes">Our recipes</a></li>
-								<li><a href="#favorites" title="My favorites">My favorites</a></li>
+								<!-- <li><a href="#favorites" title="My favorites">My favorites</a></li> -->
 								<li><a href="#family" title="My families">My families</a></li>
 							</ul>
 						</nav>
@@ -68,14 +68,23 @@
 						<!--about-->
                         <div class="tab-content" id="posts">
 							<div class="row">
-								<dl class="basic two-third">
+								<!-- <dl class="basic two-third">
 									<dt>Family Name</dt>
-									<dd>Family Name dynamically generated here</dd>
-									<dt>Family member:</dt>
-									<dd>family members dynamically generated</dd>
+									<dd><% familyName.forEach(name => { %>
+										<%= name %> 
+										<% }) %>  </dd> -->
+									<!-- <dt>Family member:</dt>
+									<dd>family members dynamically generated</dd> -->
 								
-								</dl>
-								
+								<!-- </dl> -->
+								<div class="one-third">
+									<figure>
+										<img src="<%=  familyPhoto %>" alt="" />
+									</figure>
+									<div class="container">
+										<h2 class="center"><%= familyName %> </h2>  
+									</div>
+								</div>
 								
 							
 						</div>

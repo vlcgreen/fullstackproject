@@ -1,22 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
+const auth = require("../auth");
 
-router.get('/joinFamily',(req,res) => {
-    res.send(`
-    <form action="/joinFamily" method="post">
-    Family Name
-    <input type="text" name="familyName" /><br>
-    <input type="submit"/>
-    </form>
-    
-    `)
+router.use(express.urlencoded({ extended: false }));
+router.use(express.json());
+
+router.get('/joinFamily',auth,(req,res) => {
+    res.render('joinFam');
 })
 
 router.post('/joinFamily',async (req,res) => {
-
+    try{
     let currentFamilyName = req.body.familyName;
+    //console.log(`submitted fam name ${currentFamilyName}`);
     let currentUserId = req.user.id;
+    //console.log(`userId ${currentUserId}`);
 
     //get user id off of cookie
     console.log(db.family);
@@ -36,7 +35,11 @@ router.post('/joinFamily',async (req,res) => {
     } else {
     res.send(`${currentFamilyName} doesn't exist, do you want to create a family?`)
     
-    //res.redirect('/addFamily')
+    res.redirect('/addFamily')
+   }
+    }
+    catch(e){
+        console.log(e);
     }
     
 })

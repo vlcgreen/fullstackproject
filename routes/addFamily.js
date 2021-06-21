@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
+const auth = require("../auth");
 
 //multer setup
 const multer = require('multer');
@@ -24,19 +25,9 @@ const fileFilter = (req,file,cb) => {
 const upload = multer({storage:storage, fileFilter:fileFilter});
 
 
-router.get('/addFamily',(req,res) => {
-    res.send(`
-
-    <form action="/addFamily" method="post" enctype="multipart/form-data">
-    Family Name
-    <input type="text" name="familyName" /><br>
+router.get('/addFamily',auth,(req,res) => {
     
-    Profile Picture<br> (.jpeg OR .png )<br>
-    <input type="file" name="image" /><br><br>
-    <input type="submit"/>
-    </form>
-
-    `)
+    res.render('addFam');
 })
 
 router.post('/addFamily',upload.single('image'),async(req,res) => {
