@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
 const helmet = require("helmet");
-let PORT = 3000;
+let PORT = process.env.PORT || 3000;
 const cookieSession = require("cookie-session");
 const passport = require("passport");
+
+app.use(express.static(__dirname + "/public"));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
