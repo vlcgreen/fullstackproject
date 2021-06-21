@@ -6,9 +6,9 @@ const auth = require("../auth");
 router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
-router.get("/recipes/:id", auth, async (req, res) => {
-  console.log("id", req.params.id);
-  let recipeId = req.params.id;
+router.get("/recipes/", auth, async (req, res) => {
+  console.log("id", req.query.id);
+  let recipeId = req.query.id;
 
   try {
     let recipeData = await db.user_recipes.findAll({
@@ -24,9 +24,9 @@ router.get("/recipes/:id", auth, async (req, res) => {
 });
 
 // POST / edit user recipe
-router.post("/recipes/:id", async (req, res) => {
+router.post("/recipes/", async (req, res) => {
   try {
-    let id = req.params.id;
+    let id = req.query.id;
 
     let records = await db.user_recipes.update(
       {
@@ -40,7 +40,7 @@ router.post("/recipes/:id", async (req, res) => {
       { where: { id: id } }
     );
 
-    res.redirect(`/recipes/${id}`);
+    res.redirect(`/recipes?id=${id}`);
   } catch (error) {
     res.send(error);
   }
