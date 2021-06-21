@@ -6,7 +6,7 @@
 	<meta name="keywords" content="SocialChef - Social Recipe HTML Template" />
 	<meta name="description" content="SocialChef - Social Recipe HTML Template">
 	<meta name="author" content="themeenergy.com">
-	
+
 	<title>Heart Food - My account</title>
 	
 	<link rel="stylesheet" href="css/style.css" />
@@ -62,7 +62,7 @@
 							</ul>
 						</nav>
 						
-						<!--about-->
+						<!--Account-->
 						<div class="tab-content" id="about">
 							<div class="row">
 								<dl class="basic two-third">
@@ -73,8 +73,10 @@
 									<dd><% familyNames.forEach(name => { %>
 									<%= name %> 
 									<% }) %>  </dd>
+									<dt>Email</dt>
+									<dd><%= email  %> </dd>
 									<dt>Recipes submitted</dt>
-									<dd> You have submitted <%= userRecipes %> recipes </dd>
+									<dd> You have submitted <%= userRecNum %> recipes </dd> 
 									
 								</dl>
 
@@ -85,68 +87,33 @@
 						<!--my recipes-->
 						<div class="tab-content" id="recipes">
 							<div class="entries row">
+<% for( let index = 0; index < userRecipes.length; index++ ) { %>
 								<!--item-->
 								<div class="entry one-third">
 									<figure>
-										<img src="images/img.jpg" alt="" />
-										<figcaption><a href="recipe.html"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
+										<img src="<%= userRecipes[index].image %>" alt="" />
+										<figcaption><a href="/recipes/<%=  userRecipes[index].id %>"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
 									</figure>
 									<div class="container">
-										<h2><a href="recipe.html">Thai fried rice with fruit and vegetables</a></h2> 
+										<h2><a href="/recipes/<%=  userRecipes[index].id %>"><%=  userRecipes[index].title %></a></h2> 
 										<div class="actions">
 											<div>
-												<div class="difficulty"><i class="ico i-medium"></i><a href="#">medium</a></div>
-												<div class="likes"><i class="fa fa-heart"></i><a href="#">10</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="recipe.html#comments">27</a></div>
+												<!-- <div class="difficulty"><i class="ico i-medium"></i><a href="#">medium</a></div> -->
+												<div class="likes"><i class="fa fa-heart"></i><a href="#"><b>Category:</b> <%= userRecipes[index].tag %> </a></div>
+												
 											</div>
 										</div>
 									</div>
 								</div>
 								<!--item-->
-								
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="images/img.jpg" alt="" />
-										<figcaption><a href="recipe.html"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="recipe.html">Spicy Morroccan prawns with cherry tomatoes</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="difficulty"><i class="ico i-hard"></i><a href="#">hard</a></div>
-												<div class="likes"><i class="fa fa-heart"></i><a href="#">10</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="recipe.html#comments">27</a></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--item-->
-								
-								<!--item-->
-								<div class="entry one-third">
-									<figure>
-										<img src="images/img.jpg" alt="" />
-										<figcaption><a href="recipe.html"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="recipe.html">Super easy blueberry cheesecake</a></h2> 
-										<div class="actions">
-											<div>
-												<div class="difficulty"><i class="ico i-easy"></i><a href="#">easy</a></div>
-												<div class="likes"><i class="fa fa-heart"></i><a href="#">10</a></div>
-												<div class="comments"><i class="fa fa-comment"></i><a href="recipe.html#comments">27</a></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!--item-->
+<% } %>
+
 							</div>
 						</div>
 						<!--//my recipes-->
 						
 						
-						<!--my favorites NOW ADD RECIPE-->
+						<!--ADD RECIPE-->
 						<div class="tab-content" id="favorites">
 							
 				<section class="content full-width">
@@ -173,18 +140,18 @@
 								<h2>Ingredients</h2>
 								<div class="f-row">
 									<div class="full">
-										<textarea placeholder="Add Ingredients" name=""></textarea></div>
+										<textarea placeholder="Add Ingredients" name="ingredients"></textarea></div>
 								</div>
 
 							<section>
 								<h2>Directions</h2>
 								<div class="f-row">
 									<div class="full">
-										<textarea placeholder=" Write directions Here" name=""></textarea></div>
+										<textarea placeholder=" Write directions Here" name="directions"></textarea></div>
 								</div>
 							</section>	
 							
-							<section>
+							<!-- <section>
 								<h2>Ingredients</h2>
 								<div class="f-row ingredient">
 									<div class="large"><input type="text" placeholder="Ingredient" /></div>
@@ -206,7 +173,7 @@
 								<div class="f-row full">
 									<button class="add">Add a step</button>
 								</div>
-							</section>
+							</section> -->
 							
 							<section>
 								<h2>Photo</h2>

@@ -6,7 +6,6 @@ const auth = require("../auth");
 router.use(express.urlencoded({ extended: false }));
 router.use(express.json());
 
-
 // renders the home front end page
 router.get("/familyDashboard",auth, async (req, res) => {
   try{
@@ -16,7 +15,7 @@ router.get("/familyDashboard",auth, async (req, res) => {
   var photoPath = currentUser.photo.substring(7);
   console.log(photoPath);
   } else {
-    var photoPath = 'images/avatar.jpg';
+    var photoPath = "images/avatar.jpg";
   }
   // get current family to show
   let familyData = await db.membership.findAll({where:{userID:currentUser.id}});
