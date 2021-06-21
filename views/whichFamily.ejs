@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="SocialChef - Social Recipe HTML Template" />
+	<meta name="description" content="SocialChef - Social Recipe HTML Template">
+	<meta name="author" content="themeenergy.com">
+	
+	<title>Heart Food - Choose Family</title>
+	
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/icons.css" />
+	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800" rel="stylesheet">
+	<script src="https://use.fontawesome.com/e808bf9397.js"></script>
+	<link rel="shortcut icon" href="/fullstackproject/public/images/favicon.ico" />
+	
+</head>
+<body>
+	<!--preloader-->
+	<div class="preloader">
+		<div class="spinner"></div>
+	</div>
+	<!--//preloader-->
+	
+	<!--header-->
+	
+	<header class="head" role="banner">
+			<%- include ('partials/content/header.ejs') %> 
+	</header>
+	
+	<!--//header-->
+		
+	<!--main-->
+	<main class="main" role="main">
+		<!--wrap-->
+		<div class="wrap clearfix">
+			<!--row-->
+			<div class="row">
+			<!--content-->
+				<section class="content center full-width">
+                    <% familyData.forEach(family =>{ %> 
+					<a href="/familyDashboard ">
+                        <div class="my_account one-fourth" id="<%= family.id %> ">
+                            <figure>
+                                <img src="<%= family.familyPhoto.substring(7) %>" alt="" height="" />
+                        
+                            </figure>
+                            <div class="container">
+                                <h2 class="center"> <%= family.familyName %>  </h2>
+                            </div>
+                        </div>
+                    </a>
+                <%}) %> 
+
+                    
+				</section>
+				<!--//content-->
+			</div>
+			<!--//row-->
+		</div>
+		<!--//wrap-->
+	</main>
+	<!--//main-->
+	
+	
+	<!--footer-->
+	<footer class="foot" role="contentinfo">
+		<%- include ('partials/content/footer.ejs') %> 
+	</footer>
+	<!--//footer-->
+	
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script src="js/jquery.uniform.min.js"></script>
+	<script src="js/jquery.slicknav.min.js"></script>
+	<script src="js/scripts.js"></script>
+</body>
+</html>
+
+
