@@ -109,7 +109,7 @@ router.post("/user_recipes/new", upload.single("image"), async (req, res) => {
     };
 
     if (req.file) {
-      data.image = `http://localhost:3000/${req.file.path.split("public/")[1]}`;
+      data.image = `${req.file.path.split("public/")[1]}`;
     }
 
     await db.user_recipes.create(data);
