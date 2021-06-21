@@ -8,22 +8,110 @@ router.use(express.json());
 
 
 // renders the home front end page
-router.get("/familyDashboard",auth, (req, res) => {
+router.get("/familyDashboard",auth, async (req, res) => {
+  try{
   let currentUser = req.user;
-  
+  //show profile pic or default image
   if(currentUser.photo){
   var photoPath = currentUser.photo.substring(7);
   console.log(photoPath);
   } else {
     var photoPath = 'images/avatar.jpg';
   }
-  
-  res.render("familyDashboard",{
-    profliePicUrl:photoPath,
-    userName:currentUser.name
-  });
+  // get current family to show
+  let familyData = await db.membership.findAll({where:{userID:currentUser.id}});
+  let familyIDs = [];
+  familyData.forEach(record =>{
+    familyIDs.push(record.familyID)
+  })
+  //console.log(familyIDs);
 
+  //display family names
+  let familyNameData = await db.family.findAll({where:{id:familyIDs}});
+  let familyNames = [];
+  familyNameData.forEach(record =>{
+    familyNames.push(record.familyName);
+  })
+  let familyPhotos = [];
+  
+  familyNameData.forEach(record =>{
+    let trimmed = record.familyPhoto.substring(7);
+    familyPhotos.push(trimmed);
+  })
+
+  
+    res.render("familyDashboard",{
+      profliePicUrl:photoPath,
+      userName:currentUser.name,
+      familyid:familyIDs,
+      familyName:familyNames,
+      familyPhoto:familyPhotos
+    })
+
+  }catch(e){
+  res.send(e);
+  }
 });
+
+//if user has more tha one family renders dashboard to choose family
+router.get('/whichFamily',auth, async(req,res) => {
+  try{
+    let currentUser = req.user;
+  //show profile pic or default image
+  if(currentUser.photo){
+  var photoPath = currentUser.photo.substring(7);
+  console.log(photoPath);
+  } else {
+    var photoPath = 'images/avatar.jpg';
+  }
+  // get current family to show
+  let familyData = await db.membership.findAll({where:{userID:currentUser.id}});
+  let familyIDs = [];
+  familyData.forEach(record =>{
+    familyIDs.push(record.familyID)
+  })
+  //console.log(familyIDs);
+
+  //display family names
+  let familyNameData = await db.family.findAll({where:{id:familyIDs}});
+  //console.log(familyNameData);
+  let familyNames = [];
+  familyNameData.forEach(record =>{
+    familyNames.push(record.familyName);
+  })
+  let familyPhotos = [];
+  
+  familyNameData.forEach(record =>{
+    let trimmed = record.familyPhoto.substring(7);
+    familyPhotos.push(trimmed);
+  })
+
+    if(familyIDs.length > 1){
+      res.render('whichFamily.ejs',{
+        familyData:familyNameData,
+        profliePicUrl:photoPath,
+        userName:currentUser.name,
+        familyid:familyIDs,
+        familyName:familyNames,
+        familyPhoto:familyPhotos
+        
+      });
+  
+    }else{
+      res.render("familyDashboard",{
+        profliePicUrl:photoPath,
+        userName:currentUser.name,
+        familyid:familyIDs,
+        familyName:familyNames,
+        familyPhoto:familyPhotos
+      })
+    }
+  
+
+  }catch(e){
+
+  }
+})
 
 // GET / Show all family recipes
 // localhost:3000/familyDashboard/search
