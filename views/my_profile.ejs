@@ -29,7 +29,7 @@
 			<!--breadcrumbs-->
 			<nav class="breadcrumbs">
 				<ul>
-					<li><a href="" title="Home">Home</a></li>
+					<li><a href="/" title="Home">Home</a></li>
 					<li>My account</li>
 				</ul>
 			</nav>
@@ -92,10 +92,10 @@
 								<div class="entry one-third">
 									<figure>
 										<img src="<%= userRecipes[index].image %>" alt="" />
-										<figcaption><a href="/recipes/<%=  userRecipes[index].id %>"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
+										<figcaption><a href="/recipes?id=<%=  userRecipes[index].id %>"><i class="icon icon-themeenergy_eye2"></i> <span>View recipe</span></a></figcaption>
 									</figure>
 									<div class="container">
-										<h2><a href="/recipes/<%=  userRecipes[index].id %>"><%=  userRecipes[index].title %></a></h2> 
+										<h2><a href="/recipes?id=<%=  userRecipes[index].id %>"><%=  userRecipes[index].title %></a></h2> 
 										<div class="actions">
 											<div>
 												<!-- <div class="difficulty"><i class="ico i-medium"></i><a href="#">medium</a></div> -->
@@ -118,22 +118,22 @@
 							
 				<section class="content full-width">
 					<div class="submit_recipe container">
-						<form action="/register" method="post" enctype="multipart/form-data">
+						<form action="/user_recipes/new" method="POST" enctype="multipart/form-data">
 							<section>
 								<h2>Title</h2>
 								<!-- <p>All fields are required.</p> -->
 								<div class="f-row">
-									<div class="full"><input type="text" placeholder="Recipe title" name="" /></div>
+									<div class="full"><input type="text" placeholder="Recipe title" name="title" /></div>
 								</div>
-								<!-- <div class="f-row">
-									<div class="third"><input type="text" placeholder="Preparation time" /></div>
-									<div class="third"><input type="text" placeholder="Cooking time" /></div>
-									<div class="third"><input type="text" placeholder="Difficulty" /></div>
-								</div>
+
+							</section>
+							<section>
+								<h2>Category</h2>
+								<!-- <p>All fields are required.</p> -->
 								<div class="f-row">
-									<div class="third"><input type="text" placeholder="Serves how many people?" /></div>
-									<div class="third"><select><option selected="selected">Select a category</option></select></div>
-								</div> -->
+									<div class="full"><input type="text" placeholder="Category" name="tag" /></div>
+								</div>
+
 							</section>
 							
 							<section>
@@ -151,29 +151,6 @@
 								</div>
 							</section>	
 							
-							<!-- <section>
-								<h2>Ingredients</h2>
-								<div class="f-row ingredient">
-									<div class="large"><input type="text" placeholder="Ingredient" /></div>
-									<div class="small"><input type="text" placeholder="Quantity" /></div>
-									<div class="third"><select><option selected="selected">Select a category</option></select></div>
-									<button class="remove">-</button>
-								</div>
-								<div class="f-row full">
-									<button class="add">Add an ingredient</button>
-								</div>
-							</section>	
-							
-							<section>
-								<h2>Instructions <span>(enter instructions, each step at a time)</span></h2>
-								<div class="f-row instruction">
-									<div class="full"><input type="text" placeholder="Instructions" /></div>
-									<button class="remove">-</button>
-								</div>
-								<div class="f-row full">
-									<button class="add">Add a step</button>
-								</div>
-							</section> -->
 							
 							<section>
 								<h2>Photo</h2>
@@ -182,17 +159,6 @@
 								</div>
 							</section>	
 							
-							<!-- <section>
-								<h2>Status <span>(would you like to further edit this recipe or are you ready to publish it?)</span></h2>
-								<div class="f-row full">
-									<input type="radio" id="r1" name="radio"/>
-									<label for="r1">I am still working on it</label>
-								</div>
-								<div class="f-row full">
-									<input type="radio" id="r2" name="radio"/>
-									<label for="r2">I am ready to publish this recipe</label>
-								</div>
-							</section> -->
 							
 							<div class="f-row full">
 								<input type="submit" class="button" id="submitRecipe" value="Publish this recipe" />
