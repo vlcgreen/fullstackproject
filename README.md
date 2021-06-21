@@ -2,14 +2,14 @@
 # Heart Food
 Heart Food is a social community which allows your family to connect and share your favorite recipes
 ![image](https://user-images.githubusercontent.com/81443343/122688940-3eb12200-d1d4-11eb-9034-117339ac0c3c.png)
-app photo
+![image](https://user-images.githubusercontent.com/81443343/122721168-333a1700-d225-11eb-9954-a66053c775fe.png)
+
 
 ## How to run
 
 ## Tech Stack
 * HTML,  CSS, Javascript
 * Other: 
-## Code Snippets
 
 
 ## Database Schema
@@ -18,6 +18,11 @@ app photo
 ## MVP
 
 ## Stretch Goals (Future)
+* Show recipes based on which family is selected
+* Embedded google search for more recipe ideas
+* User who creates a group can email invites to others
+* Make recipes printable and shareable
+* Working Contact Us Page
 
 ## Developer team
 Victoria - [Vlcgreen](https://github.com/Vlcgreen)
