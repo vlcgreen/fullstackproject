@@ -7,6 +7,13 @@ module.exports = {
     "database": "pfaptxzb",
     "host": "batyr.db.elephantsql.com",
     "dialect": "postgres"
+  },
+  "production": {
+    "username": "pfaptxzb",
+    "password": env.DB_PASSWORD,
+    "database": "pfaptxzb",
+    "host": "batyr.db.elephantsql.com",
+    "dialect": "postgres"
   }
 } 
 
