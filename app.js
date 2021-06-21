@@ -33,7 +33,6 @@ app.use(require("./routes/index"));
 app.use(require("./routes/my_profile"));
 
 app.use(require("./routes/familyDashboard"));
-app.use(require("./routes/index"));
 
 app.use(require("./routes/register"));
 app.use(require("./routes/recipes"));
