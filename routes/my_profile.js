@@ -31,9 +31,11 @@ const upload = multer({ storage: storage, fileFilter: fileFilter });
 router.get("/my_profile", auth, async (req, res) => {
   try {
     let currentUser = req.user;
-    //console.log(currentUser.id);
+
     if (currentUser.photo) {
+      console.log("photo", currentUser.photo);
       var photoPath = currentUser.photo.substring(7);
+      console.log("photo substring", photoPath);
     } else {
       var photoPath = "images/avatar.jpg";
     }

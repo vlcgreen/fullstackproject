@@ -60,7 +60,7 @@ router.post("/recipes/", upload.single("image"), async (req, res) => {
 
     let imagePath = null;
     if (req.file) {
-      imagePath = `http://localhost:3000/${req.file.path.split("public/")[1]}`;
+      imagePath = `${req.file.path.split("public/")[1]}`;
       data.image = imagePath;
     }
 
