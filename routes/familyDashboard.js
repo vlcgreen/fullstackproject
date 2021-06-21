@@ -39,6 +39,8 @@ router.get("/familyDashboard",auth, async (req, res) => {
     familyPhotos.push(trimmed);
   })
 
+  //need to get the id off of the link
+
   
     res.render("familyDashboard",{
       profliePicUrl:photoPath,
